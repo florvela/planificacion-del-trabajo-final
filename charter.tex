@@ -106,41 +106,30 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+Los modelos de lenguaje de gran escala (en inglés, \textit{Large Language Models} o LLM) se popularizaron como sistemas conversacionales capaces de recibir y producir texto. Sobre esta base surgieron los agentes de inteligencia artificial (IA), que incorporan la capacidad de planificar y ejecutar tareas mediante herramientas. Así, además de responder consultas, un agente puede leer y modificar archivos, ejecutar comandos, enviar correos o utilizar servicios externos. Esta capacidad de acción los vuelve útiles, pero también les permite acceder a recursos sensibles y genera nuevos riesgos de seguridad.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+Uno de estos riesgos aparece cuando un agente consulta una página web o un documento que contiene instrucciones maliciosas. El agente puede interpretar esas instrucciones como parte del pedido original y actuar en consecuencia. Este tipo de ataque, conocido como \textit{prompt injection} o inyección de instrucciones, podría llevarlo a divulgar información sensible, enviar datos a destinos no autorizados, modificar o borrar recursos sin permiso, ejecutar código no aprobado o intentar ampliar sus privilegios. El momento de la detección es fundamental: si el desvío se identifica después de ejecutar la acción, el daño puede ser difícil o imposible de revertir. Por eso, resulta necesario contar con controles que evalúen las acciones antes de que se ejecuten.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+En este contexto, el proyecto propone desarrollar un componente de control que actúe como intermediario entre el agente y sus herramientas. Su función es evaluar cada acción propuesta y decidir si corresponde permitirla, enviarla a revisión o bloquearla antes de su ejecución. Se trata de una iniciativa académica individual, realizada en el marco del Trabajo Final de la Maestría en Inteligencia Artificial, dirigida a personas u organizaciones que utilizan agentes para trabajar con datos, archivos o servicios y necesitan delegar tareas sin exponer recursos sensibles. Para estos usuarios, resultan especialmente relevantes la preservación de la privacidad y la precisión de las alertas, de manera que el sistema detecte acciones riesgosas sin interrumpir innecesariamente las tareas legítimas.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Para tomar cada decisión, el sistema considera tres fuentes de información: los permisos del agente, la herramienta que pretende utilizar junto con sus argumentos y el contexto reciente de la sesión. La evaluación combina el grado en que una acción se aparta del comportamiento esperado con su coherencia respecto del objetivo de la tarea y los permisos otorgados. Se busca que el control funcione en tiempo real, con baja latencia, y que pueda ejecutarse de manera local y liviana en la máquina del usuario para preservar la privacidad. También se contempla su adaptación a los recursos disponibles, mediante la selección de modelos según la capacidad de cómputo y la memoria del equipo.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+El funcionamiento de la solución se presenta en la figura~\ref{fig:diagBloques}. Cuando el agente propone una acción, el componente de control aplica primero un conjunto de reglas explícitas de permisos que no dependen de la IA. Por ejemplo, una regla puede impedir que un agente con determinado rol lea un archivo de credenciales. Si estas reglas no son suficientes para resolver la decisión, un modelo de riesgo evalúa la acción a partir del contexto de la sesión. La decisión final integra ambos mecanismos: solo las acciones clasificadas como permitidas llegan al ejecutor; las que requieren revisión quedan pendientes y las bloqueadas no se ejecutan. Las restricciones establecidas por las reglas mantienen su validez independientemente de la puntuación del modelo, de modo que este no puede anular una prohibición explícita.
 
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
+En cuanto al estado del arte, se identifican distintas líneas de trabajo relacionadas con el problema. Una de ellas comprende modelos de protección como Llama Guard, ShieldGemma y Granite Guardian, que permiten detectar riesgos en las entradas y respuestas de los modelos de lenguaje. Otra incluye modelos orientados a producir decisiones estructuradas a partir de un contexto y una pregunta, como Jev y Laya. Estos modelos pueden devolver una categoría, una puntuación o una probabilidad, por lo que constituyen alternativas para explorar en la evaluación de acciones. También existen mecanismos de control sobre el uso de herramientas, como Invariant Guardrails y Progent, y sistemas de protección para agentes, como LlamaFirewall. A estas líneas se suman las técnicas de detección de anomalías de comportamiento, que permiten identificar desviaciones respecto de patrones habituales.
 
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
+El aporte que se busca desarrollar consiste en integrar tres características en un mismo mecanismo de control: la evaluación previa a la ejecución de cada acción, el funcionamiento local y liviano, y la adaptación a los recursos del entorno. Esto incluye explorar variantes cuantizadas, que reducen los requisitos de memoria y facilitan el uso de modelos en equipos de capacidad limitada. La propuesta combina reglas verificables con una evaluación contextual del riesgo, y su utilidad deberá analizarse en comparación con los enfoques existentes, considerando tanto la detección de acciones riesgosas como la latencia y el consumo de recursos.
 
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
+Actualmente, se ha comenzado el desarrollo de la solución. Una de las etapas más importantes será definir el conjunto de datos sobre el cual se realizarán las pruebas, ya que caracterizar un comportamiento como malicioso constituye un problema complejo. Una misma acción puede ser legítima o riesgosa según el objetivo de la tarea, los permisos otorgados, los recursos involucrados y el contexto en el que se propone. Además, una acción poco habitual no necesariamente es maliciosa, y una acción frecuente puede resultar perjudicial si se realiza sin autorización.
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Por este motivo, la construcción del conjunto de datos requerirá establecer criterios claros para distinguir acciones permitidas, acciones que requieren revisión y acciones que deben bloquearse. Se prevé considerar datos públicos y ejemplos sintéticos que representen tanto tareas legítimas como intentos de desvío y situaciones ambiguas. Sobre esta base se compararán detectores de anomalías, clasificadores supervisados y modelos de decisión preentrenados, con el objetivo de identificar qué enfoques ofrecen el equilibrio más adecuado entre detección de riesgos, precisión de las alertas y requisitos de ejecución.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
