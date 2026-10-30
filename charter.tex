@@ -59,7 +59,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 6 inclusive                & 29 de octubre de 2026 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -108,7 +108,7 @@ Se adjunta a esta acta la planificación inicial.
 
 Los modelos de lenguaje de gran escala (en inglés, \textit{Large Language Models} o LLM) se popularizaron como sistemas conversacionales capaces de recibir y producir texto. Sobre esta base surgieron los agentes de inteligencia artificial (IA), que incorporan la capacidad de planificar y ejecutar tareas mediante herramientas. Así, además de responder consultas, un agente puede leer y modificar archivos, ejecutar comandos, enviar correos o utilizar servicios externos. Esta capacidad de acción los vuelve útiles, pero también les permite acceder a recursos sensibles y genera nuevos riesgos de seguridad.
 
-Uno de estos riesgos aparece cuando un agente consulta una página web o un documento que contiene instrucciones maliciosas. El agente puede interpretar esas instrucciones como parte del pedido original y actuar en consecuencia. Este tipo de ataque, conocido como \textit{prompt injection} o inyección de instrucciones, podría llevarlo a divulgar información sensible, enviar datos a destinos no autorizados, modificar o borrar recursos sin permiso, ejecutar código no aprobado o intentar ampliar sus privilegios. El momento de la detección es fundamental: si el desvío se identifica después de ejecutar la acción, el daño puede ser difícil o imposible de revertir. Por eso, resulta necesario contar con controles que evalúen las acciones antes de que se ejecuten.
+Uno de estos riesgos aparece cuando un agente consulta una página web o un documento que contiene instrucciones maliciosas. El agente puede interpretar esas instrucciones como parte del pedido original y actuar en consecuencia. Este tipo de ataque, conocido como \textit{prompt injection} o inyección de instrucciones, podría llevarlo a divulgar información sensible, enviar datos a destinos no autorizados, modificar o borrar recursos sin permiso, ejecutar código no aprobado o intentar ampliar sus privilegios. El momento de la detección es fundamental, ya que si el desvío se identifica después de ejecutar la acción, el daño puede ser difícil o imposible de revertir. Por eso, resulta necesario contar con controles que evalúen las acciones antes de que se ejecuten.
 
 En este contexto, el proyecto propone desarrollar un componente de control que actúe como intermediario entre el agente y sus herramientas. Su función es evaluar cada acción propuesta y decidir si corresponde permitirla, enviarla a revisión o bloquearla antes de su ejecución. Se trata de una iniciativa académica individual, realizada en el marco del Trabajo Final de la Maestría en Inteligencia Artificial, dirigida a personas u organizaciones que utilizan agentes para trabajar con datos, archivos o servicios y necesitan delegar tareas sin exponer recursos sensibles. Para estos usuarios, resultan especialmente relevantes la preservación de la privacidad y la precisión de las alertas, de manera que el sistema detecte acciones riesgosas sin interrumpir innecesariamente las tareas legítimas.
 
@@ -118,160 +118,139 @@ El funcionamiento de la solución se presenta en la figura~\ref{fig:diagBloques}
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 En cuanto al estado del arte, se identifican distintas líneas de trabajo relacionadas con el problema. Una de ellas comprende modelos de protección como Llama Guard, ShieldGemma y Granite Guardian, que permiten detectar riesgos en las entradas y respuestas de los modelos de lenguaje. Otra incluye modelos orientados a producir decisiones estructuradas a partir de un contexto y una pregunta, como Jev y Laya. Estos modelos pueden devolver una categoría, una puntuación o una probabilidad, por lo que constituyen alternativas para explorar en la evaluación de acciones. También existen mecanismos de control sobre el uso de herramientas, como Invariant Guardrails y Progent, y sistemas de protección para agentes, como LlamaFirewall. A estas líneas se suman las técnicas de detección de anomalías de comportamiento, que permiten identificar desviaciones respecto de patrones habituales.
 
-El aporte que se busca desarrollar consiste en integrar tres características en un mismo mecanismo de control: la evaluación previa a la ejecución de cada acción, el funcionamiento local y liviano, y la adaptación a los recursos del entorno. Esto incluye explorar variantes cuantizadas, que reducen los requisitos de memoria y facilitan el uso de modelos en equipos de capacidad limitada. La propuesta combina reglas verificables con una evaluación contextual del riesgo, y su utilidad deberá analizarse en comparación con los enfoques existentes, considerando tanto la detección de acciones riesgosas como la latencia y el consumo de recursos.
+Además, se busca que el sistema pueda adaptarse a equipos de bajos recursos. Para ello se explorarán variantes cuantizadas, que reducen los requisitos de memoria y facilitan el uso de modelos en máquinas de capacidad limitada. La propuesta combina reglas verificables con una evaluación contextual del riesgo, y su utilidad deberá analizarse en comparación con los enfoques existentes, considerando tanto la detección de acciones riesgosas como la latencia y el consumo de recursos.
 
-Actualmente, se ha comenzado el desarrollo de la solución. Una de las etapas más importantes será definir el conjunto de datos sobre el cual se realizarán las pruebas, ya que caracterizar un comportamiento como malicioso constituye un problema complejo. Una misma acción puede ser legítima o riesgosa según el objetivo de la tarea, los permisos otorgados, los recursos involucrados y el contexto en el que se propone. Además, una acción poco habitual no necesariamente es maliciosa, y una acción frecuente puede resultar perjudicial si se realiza sin autorización.
+Una de las etapas más importantes será definir el conjunto de datos sobre el cual se realizarán las pruebas, ya que caracterizar un comportamiento como malicioso constituye un problema complejo. Una misma acción puede ser legítima o riesgosa según el objetivo de la tarea, los permisos otorgados, los recursos involucrados y el contexto en el que se propone. Además, una acción poco habitual no necesariamente es maliciosa, y una acción frecuente puede resultar perjudicial si se realiza sin autorización.
 
 Por este motivo, la construcción del conjunto de datos requerirá establecer criterios claros para distinguir acciones permitidas, acciones que requieren revisión y acciones que deben bloquearse. Se prevé considerar datos públicos y ejemplos sintéticos que representen tanto tareas legítimas como intentos de desvío y situaciones ambiguas. Sobre esta base se compararán detectores de anomalías, clasificadores supervisados y modelos de decisión preentrenados, con el objetivo de identificar qué enfoques ofrecen el equilibrio más adecuado entre detección de riesgos, precisión de las alertas y requisitos de ejecución.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
+En la tabla~\ref{tab:interesados} se identifican los interesados del proyecto. Al tratarse de un Trabajo Final de carácter académico e individual, varios roles habituales en proyectos mayores (auspiciante, impulsor, colaboradores, equipo, opositores) no aplican y se omiten.
 
 \begin{table}[ht]
-%\caption{Identificación de los interesados}
-%\label{tab:interesados}
-\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\caption{Identificación de los interesados.}
+\label{tab:interesados}
+\begin{tabularx}{\linewidth}{@{}|l|X|l|X|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
-Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Cliente       & Cátedra de Trabajo Final & FIUBA & Validador académico \\ \hline
+Responsable   & \authorname       & FIUBA        	& Alumna 	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & Desarrolladores, analistas y perfiles de finanzas, RR.\,HH.\ e IT \\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
+A continuación se describen las principales características de cada interesado:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item \textbf{Cliente:} la cátedra actúa como validadora académica del trabajo; aprueba los resultados y verifica que se cumplan los objetivos comprometidos en el acta.
+	\item \textbf{Responsable:} ejecuta la totalidad del trabajo técnico y la redacción de la memoria. Su disponibilidad es de tipo \textit{part-time}, lo que condiciona el cronograma y obliga a planificar con holgura.
+	\item \textbf{Orientador:} el Director del Trabajo Final es experto en la temática y colabora en la definición de los requerimientos, la metodología de evaluación y la revisión de la memoria.
+	\item \textbf{Usuario final:} valora la privacidad (que sus datos no salgan de su equipo), un bajo impacto en la fluidez de uso (pocas falsas alarmas) y que la solución funcione en computadoras de capacidad modesta.
 \end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
+Evaluar y construir un sistema capaz de detectar y frenar acciones maliciosas de agentes de inteligencia artificial en el instante previo a su ejecución. Se busca que el sistema funcione de forma liviana y local para preservar la privacidad del usuario. También se propone entregar evidencia reproducible sobre qué enfoques ofrecen el mejor equilibrio entre seguridad (detectar ataques), usabilidad (pocas falsas alarmas) y costo computacional (latencia, memoria y tamaño). Estos enfoques incluyen la detección de anomalías, los clasificadores entrenados, los modelos de decisión preentrenados y sus combinaciones. Además, se contemplarán versiones adaptadas a distintos niveles de recursos del equipo del usuario.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
+	\item Revisión del estado del arte y preparación de los datos: conjuntos públicos ya identificados y un conjunto sintético propio controlado.
+	\item Implementación de tres familias de detectores y de su combinación:
 		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
+		\item detección de anomalías, que identifica lo que se aparta de lo normal sin requerir ejemplos de ataques;
+		\item clasificadores entrenados, que aprenden de ejemplos etiquetados a distinguir una acción riesgosa de una legítima;
+		\item modelos de decisión preentrenados, es decir, modelos pequeños y rápidos que eligen entre opciones.
 		\end{itemize}
-	\item ...
-	
+	\item Un banco de pruebas (\textit{benchmark}) reproducible que mida, para cada enfoque: cuántos ataques detecta antes de ejecutarse, cuántas falsas alarmas genera (por acción y por sesión), la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo.
+	\item Técnicas de optimización: cuantización (compresión) y comparación de versiones del mismo modelo en distintas precisiones, para hacerlo viable en equipos modestos.
+	\item Un intermediario configurable (el \textit{gate}) que se interpone entre el agente y sus herramientas, con una matriz de decisión que elige la mejor variante según el entorno (nube autorizada, GPU local, o poca memoria RAM, caso en el que se usa la versión liviana).
+	\item La memoria del Trabajo Final, el código fuente documentado y los resultados reproducibles.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+El proyecto no incluye:
+\begin{itemize}
+	\item Un producto comercial listo para producción.
+	\item El entrenamiento de modelos de lenguaje grandes desde cero; se parte de modelos existentes.
+	\item La integración con un \textit{sandbox} de agentes; esto quedaría como trabajo futuro o prueba exploratoria.
+	\item La recolección de datos reales de usuarios; se trabaja con datos públicos y sintéticos, por lo que los resultados no se reportan como incidentes reales confirmados.
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
-
+Para el desarrollo del proyecto se supone que:
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Se dispone de datos públicos útiles para construir modelos de detección de comportamiento malicioso.
+	\item Se dispone de acceso a modelos abiertos en repositorios como Hugging Face y GitHub.
+	\item Se cuenta con acceso a cómputo con GPU de forma gratuita o de bajo costo (por ejemplo, Google Colab) para las partes que lo requieran; el resto corre en una computadora personal.
+	\item La disponibilidad horaria de la responsable permite sostener las 600~h estimadas, distribuidas en el período de ejecución (modalidad \textit{part-time}), con la orientación periódica del director.
+	\item Las licencias de los modelos y conjuntos de datos de terceros permiten su uso con fines académicos y de investigación.
+	\item La disponibilidad de los servicios de cómputo y el acceso a internet se mantienen razonablemente estables durante el proyecto.
+	\item Los resultados se evalúan sobre datos sintéticos o de laboratorio; se asume que esto es suficiente para comparar enfoques entre sí, aunque no para afirmar su eficacia en un entorno de producción real.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
+Los requerimientos se agrupan por afinidad.
 
 \begin{enumerate}
 	\item Requerimientos funcionales:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El sistema debe evaluar cada acción propuesta por el agente antes de ejecutarla y devolver una de tres decisiones: permitir, revisar o bloquear.
+			\item El sistema debe usar como entrada únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos); no debe usar información del futuro ni las etiquetas.
+			\item El sistema debe aplicar reglas de permisos verificables, independientes del modelo de IA (por ejemplo, denegar la lectura de archivos de credenciales).
+			\item El sistema debe permitir intercambiar el modelo de riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema.
+			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, y marcar los desvíos respecto del patrón habitual.
+			\item El sistema debe elegir automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM).
+		\end{enumerate}
+	\item Requerimientos de desempeño:
+		\begin{enumerate}
+			\item El sistema debe tomar cada decisión rápidamente; en la variante liviana corriendo en CPU, cada decisión debe tardar en promedio como mucho 500~ms.
+			\item El sistema debe poder funcionar usando como mucho 2~GB de memoria RAM adicional.
+			\item El sistema debe ocupar como máximo 1~GB en disco.
+		\end{enumerate}
+	\item Requerimientos de seguridad y privacidad:
+		\begin{enumerate}
+			\item La inferencia debe poder ejecutarse 100\,\% de forma local, sin enviar datos a internet.
+			\item El uso de la nube debe ser opcional y explícitamente autorizado por el usuario.
 		\end{enumerate}
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item Memoria del Trabajo Final.
+			\item Documentación que permita reproducir los experimentos con los conjuntos de datos públicos.
+			\item Documentación de los conjuntos de datos, con su origen y sus códigos de verificación de integridad (en inglés, \textit{checksums}).
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimientos de testing:
+		\begin{enumerate}
+			\item Pruebas automatizadas del \textit{gate}.
+		\end{enumerate}
+	\item Requerimientos de interoperabilidad:
+		\begin{enumerate}
+			\item Interfaz simple que reciba el contexto y la acción propuesta y devuelva la decisión, para integrarse con distintas plataformas anfitrionas, incluido un \textit{sandbox} de agentes.
+		\end{enumerate}
+	\item Requerimientos regulatorios y de normas:
+		\begin{enumerate}
+			\item Cumplir con la normativa de protección de datos personales aplicable (en Argentina, la Ley 25.326; se consideran además principios del GDPR por buenas prácticas), dado que el sistema observa el comportamiento de los usuarios: minimización de datos, procesamiento local y anonimización cuando corresponda.
+			\item Respetar las licencias de los conjuntos de datos y modelos de terceros.
+		\end{enumerate}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
