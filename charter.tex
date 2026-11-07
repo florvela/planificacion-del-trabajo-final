@@ -82,7 +82,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD~9.490, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -527,72 +527,65 @@ ajustar este valor y, quizás, acortar los nombres de las tareas.
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
+El presupuesto se expresa en dólares estadounidenses (USD). Dado el período de ejecución (desde octubre de 2026 hasta la defensa prevista en noviembre de 2027), se adopta el USD como moneda de referencia para evitar la distorsión que la inflación introduciría sobre valores expresados en pesos argentinos (ARS).
+
+Al tratarse de un Trabajo Final académico e individual, el mayor componente del costo corresponde a la mano de obra de la responsable. Aunque no implica un desembolso monetario efectivo, se valoriza como costo de oportunidad a un valor hora de mercado de referencia para un perfil semi-senior de IA y datos en Argentina (USD~15/h), por lo que las 600~h estimadas constituyen el principal costo directo.
+
+Los conjuntos de datos públicos, los modelos abiertos y el software utilizado son de uso gratuito, por lo que su costo directo es nulo; se incluyen de todos modos en la tabla para dejar constancia. El cómputo con GPU se cubre mediante una suscripción a Google Colab Pro durante los meses de experimentación. Entre los costos indirectos se consideran la amortización del equipo de cómputo personal, la energía eléctrica y la conexión a internet, imputados de forma proporcional al uso del proyecto.
+
+Los supuestos de cálculo son:
 \begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
+	\item Valor hora de la responsable: USD~15/h (costo de oportunidad, ajustable).
+	\item Google Colab Pro: USD~12 por mes durante 5 meses de experimentación (desarrollo de los detectores, optimización y evaluación).
+	\item Amortización del equipo: notebook de USD~1.200, vida útil de 48 meses, con 13 meses de uso imputados al proyecto.
+	\item Energía eléctrica e internet: imputación proporcional al uso durante el período de ejecución.
 \end{itemize}
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
-
-\end{consigna}
+El detalle se presenta en la tabla~\ref{tab:presupuesto}.
 
 \begin{table}[htpb]
 \centering
+\caption{Presupuesto detallado del proyecto (en USD).}
+\label{tab:presupuesto}
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
+\rowcolor[HTML]{C0C0C0}
+Descripción &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unit.\ (USD)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
+Mano de obra: gestión y organización del proyecto & 40 h & 15 & 600 \\ \hline
+Mano de obra: relevamiento y estado del arte & 60 h & 15 & 900 \\ \hline
+Mano de obra: conjunto de datos & 90 h & 15 & 1.350 \\ \hline
+Mano de obra: desarrollo de los detectores & 130 h & 15 & 1.950 \\ \hline
+Mano de obra: optimización y cuantización & 50 h & 15 & 750 \\ \hline
+Mano de obra: intermediario (\textit{gate}) e integración & 70 h & 15 & 1.050 \\ \hline
+Mano de obra: evaluación y banco de pruebas & 70 h & 15 & 1.050 \\ \hline
+Mano de obra: pruebas automatizadas & 20 h & 15 & 300 \\ \hline
+Mano de obra: memoria del Trabajo Final & 50 h & 15 & 750 \\ \hline
+Mano de obra: presentación y cierre & 20 h & 15 & 300 \\ \hline
+Suscripción a Google Colab Pro & 5 meses & 12 & 60 \\ \hline
+Conjuntos de datos públicos & --- & 0 & 0 \\ \hline
+Modelos abiertos y software de código abierto & --- & 0 & 0 \\ \hline
+\multicolumn{3}{|r|}{SUBTOTAL COSTOS DIRECTOS} &
+  \multicolumn{1}{r|}{9.060} \\ \hline
+\rowcolor[HTML]{C0C0C0}
+\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
+\rowcolor[HTML]{C0C0C0}
+Descripción &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unit.\ (USD)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
+Amortización del equipo de cómputo (notebook personal) & 13 meses & 25 & 325 \\ \hline
+Energía eléctrica (proporcional) & 13 meses & --- & 45 \\ \hline
+Conexión a internet (proporcional) & 13 meses & --- & 60 \\ \hline
+\multicolumn{3}{|r|}{SUBTOTAL COSTOS INDIRECTOS} &
+  \multicolumn{1}{r|}{430} \\ \hline
+\rowcolor[HTML]{C0C0C0}
+\multicolumn{3}{|r|}{\cellcolor[HTML]{C0C0C0}TOTAL} &
+  \multicolumn{1}{r|}{\cellcolor[HTML]{C0C0C0}9.490} \\ \hline
 \end{tabularx}%
 \end{table}
 
