@@ -100,15 +100,18 @@ Se adjunta a esta acta la planificación inicial.
 \end{tabular}
 \end{table}
 
-
-
+\pagebreak
 
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+\subsection{Contexto y motivación}
+
 Los modelos de lenguaje de gran escala (en inglés, \textit{Large Language Models} o LLM) se difundieron como sistemas conversacionales capaces de procesar y generar texto. A partir de estas capacidades se desarrollaron los agentes de inteligencia artificial (IA), que incorporan la capacidad de planificar y ejecutar tareas mediante herramientas. Así, además de responder consultas, un agente puede leer y modificar archivos, ejecutar comandos, enviar correos o utilizar servicios externos. Esta capacidad de acción amplía sus posibilidades de aplicación, pero también les permite acceder a recursos sensibles y genera nuevos riesgos de seguridad.
 
 Uno de estos riesgos se presenta cuando un agente consulta una página web o un documento que contiene instrucciones maliciosas. El agente puede interpretar esas instrucciones como parte de la solicitud original y actuar en consecuencia. Este tipo de ataque, conocido como \textit{prompt injection} o inyección de instrucciones, podría llevarlo a divulgar información sensible, enviar datos a destinos no autorizados, modificar o borrar recursos sin permiso, ejecutar código no aprobado o intentar ampliar sus privilegios. El momento de la detección es fundamental, ya que, si el desvío se identifica después de ejecutar la acción, el daño puede ser difícil o imposible de revertir. Por eso, resulta necesario contar con controles que evalúen las acciones antes de que se ejecuten.
+
+\subsection{Descripción funcional y técnica}
 
 En este contexto, el proyecto propone desarrollar un componente de control que actúe como intermediario entre el agente y sus herramientas. Su función es evaluar cada acción propuesta y decidir si corresponde permitirla, enviarla a revisión o bloquearla antes de su ejecución. Se trata de una iniciativa académica individual en el marco del Trabajo Final de la Maestría en Inteligencia Artificial. El proyecto está dirigido a personas u organizaciones que utilizan agentes para trabajar con datos, archivos o servicios y necesitan delegar tareas sin exponer recursos sensibles. Para estos usuarios, resultan especialmente relevantes la preservación de la privacidad y la precisión de las alertas, de manera que el sistema detecte acciones riesgosas sin interrumpir innecesariamente las tareas legítimas.
 
@@ -123,7 +126,13 @@ El funcionamiento del componente de control se presenta en la figura~\ref{fig:di
 \label{fig:diagBloques}
 \end{figure}
 
+\subsection{Estado del arte}
+
 En cuanto al estado del arte, se identifican distintas líneas de trabajo relacionadas con el problema. Una de ellas comprende modelos de protección como Llama Guard, ShieldGemma y Granite Guardian, que permiten detectar riesgos en las entradas y respuestas de los modelos de lenguaje. Otra incluye modelos orientados a producir decisiones estructuradas a partir de un contexto y una pregunta, como Jev y Laya. Estos modelos pueden devolver una categoría, una puntuación o una probabilidad, por lo que constituyen alternativas para explorar en la evaluación de acciones. También existen mecanismos de control sobre el uso de herramientas, como Invariant Guardrails y Progent, y sistemas de protección para agentes, como LlamaFirewall. A estas líneas se suman las técnicas de detección de anomalías de comportamiento, que permiten identificar desviaciones respecto de patrones habituales.
+
+\subsection{Grado de innovación}
+
+La principal innovación del proyecto está en controlar cada acción en el instante previo a su ejecución, antes de que un desvío pueda provocar un daño difícil de revertir, en lugar de detectarlo una vez producido. A su vez, las reglas de permisos verificables operan con prioridad sobre el modelo de riesgo, de manera que una prohibición explícita nunca puede ser anulada por su puntuación.
 
 Además, se busca que el sistema pueda ejecutarse en equipos con recursos computacionales limitados. Para ello se explorarán variantes cuantizadas, que reducen los requisitos de memoria y facilitan el uso de modelos en máquinas de capacidad limitada. La propuesta combina reglas verificables con una evaluación contextual del riesgo, y su utilidad deberá analizarse en comparación con los enfoques existentes, considerando tanto la detección de acciones riesgosas como la latencia y el consumo de recursos.
 
