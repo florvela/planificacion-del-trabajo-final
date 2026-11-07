@@ -180,12 +180,12 @@ Evaluar y construir un sistema capaz de detectar, evaluar y controlar acciones m
 
 El proyecto incluye:
 \begin{itemize}
-	\item Revisión del estado del arte y preparación de los datos: conjuntos públicos ya identificados y un conjunto sintético propio controlado.
+	\item Revisión del estado del arte y preparación de los datos: conjuntos públicos disponibles y de un conjunto sintético propio.
 	\item Implementación de tres familias de detectores y de su combinación:
 		\begin{itemize}
-		\item detección de anomalías, que identifica lo que se aparta de lo normal sin requerir ejemplos de ataques;
-		\item clasificadores entrenados, que aprenden de ejemplos etiquetados a distinguir una acción riesgosa de una legítima;
-		\item modelos de decisión preentrenados, es decir, modelos pequeños y rápidos que eligen entre opciones.
+		\item detección de anomalías: identifica lo que se aparta de lo normal sin requerir ejemplos de ataques
+		\item clasificadores entrenados: aprenden de ejemplos etiquetados a distinguir una acción riesgosa de una legítima
+		\item modelos de decisión preentrenados: modelos pequeños y rápidos que eligen entre opciones.
 		\end{itemize}
 	\item Un banco de pruebas (\textit{benchmark}) reproducible que mida, para cada enfoque: cuántos ataques detecta antes de ejecutarse, cuántas falsas alarmas genera (por acción y por sesión), la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo.
 	\item Técnicas de optimización: cuantización (compresión) y comparación de versiones del mismo modelo en distintas precisiones, para hacerlo viable en equipos modestos.
@@ -207,7 +207,7 @@ El proyecto no incluye:
 
 Para el desarrollo del proyecto se supone que:
 \begin{itemize}
-	\item Se dispone de datos públicos útiles para construir modelos de detección de comportamiento malicioso.
+	\item Se dispone de conjuntos de datos públicos que pueden utilizarse como referencia para estudiar y evaluar técnicas de detección de comportamientos riesgosos en agentes de inteligencia artificial.
 	\item Se dispone de acceso a modelos abiertos en repositorios como Hugging Face y GitHub.
 	\item Se cuenta con acceso a cómputo con GPU de forma gratuita o de bajo costo (por ejemplo, Google Colab) para las partes que lo requieran; el resto corre en una computadora personal.
 	\item La disponibilidad horaria de la responsable permite sostener las 600~h estimadas, distribuidas en el período de ejecución (modalidad \textit{part-time}), con la orientación periódica del director.
@@ -229,7 +229,7 @@ Los requerimientos se agrupan por afinidad.
 			\item El sistema debe aplicar reglas de permisos verificables, independientes del modelo de IA (por ejemplo, denegar la lectura de archivos de credenciales).
 			\item El sistema debe permitir intercambiar el modelo de riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema.
 			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, y marcar los desvíos respecto del patrón habitual.
-			\item El sistema debe elegir automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM).
+			\item El componente debe seleccionar automáticamente la variante del modelo de evaluación de riesgo en función de los recursos computacionales disponibles en el entorno de ejecución, considerando la capacidad de CPU, la disponibilidad de GPU y la posibilidad de utilizar servicios en la nube.
 		\end{enumerate}
 	\item Requerimientos de desempeño:
 		\begin{enumerate}
