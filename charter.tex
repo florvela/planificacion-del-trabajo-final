@@ -456,113 +456,33 @@ Cantidad total de horas: 600 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+El diagrama de \textit{Activity on Node} (figura~\ref{fig:AoN}) se construye a partir del desglose de tareas de la sección~\ref{sec:wbs} y representa las dependencias entre las tareas del proyecto. Cada nodo corresponde a una tarea, identificada con su código del WBS, su nombre y su duración estimada; los tiempos están expresados en horas (h). El flujo avanza desde el hito de inicio (octubre de 2026) hasta el hito de fin (noviembre de 2027).
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
+Los colores distinguen el rol de cada tarea en la red, según las referencias incluidas en el diagrama: en rojo las tareas del camino crítico, cuya demora afecta directamente la fecha de finalización del proyecto; en naranja las del camino semicrítico, con holgura reducida; en azul las tareas fuera del camino crítico, que cuentan con holgura; y en verde los hitos de inicio y fin.
 
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
-
-\end{consigna}
-
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+Para la planificación temporal del proyecto se elaboró el diagrama de Gantt de la figura~\ref{fig:diagGantt}, construido a partir del desglose de tareas de la sección~\ref{sec:wbs}. Cada barra representa una tarea identificada con su código del WBS, su nombre y su duración estimada en horas; su posición y su longitud indican las fechas de inicio y de fin previstas.
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
-
+El cronograma abarca desde el inicio del Trabajo Final, en octubre de 2026, hasta la presentación pública prevista para noviembre de 2027. Las tareas se ordenan respetando las dependencias reflejadas en el diagrama de \textit{Activity on Node} de la sección~\ref{sec:AoN}; algunas se ejecutan en paralelo cuando las precedencias y los recursos lo permiten.
 
 \begin{landscape}
 \begin{figure}[htpb]
-\centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
+\centering
+\includegraphics[height=\textheight]{./Figuras/Gantt-2.png}
+\caption{Diagrama de Gantt del proyecto.}
 \label{fig:diagGantt}
 \end{figure}
 
 \end{landscape}
-
-\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
@@ -597,16 +517,17 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unit.\ (USD)} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
-Mano de obra: gestión y organización del proyecto & 40 h & 15 & 600 \\ \hline
-Mano de obra: relevamiento y estado del arte & 60 h & 15 & 900 \\ \hline
-Mano de obra: conjunto de datos & 90 h & 15 & 1.350 \\ \hline
-Mano de obra: desarrollo de los detectores & 130 h & 15 & 1.950 \\ \hline
-Mano de obra: optimización y cuantización & 50 h & 15 & 750 \\ \hline
-Mano de obra: intermediario (\textit{gate}) e integración & 70 h & 15 & 1.050 \\ \hline
-Mano de obra: evaluación y banco de pruebas & 70 h & 15 & 1.050 \\ \hline
-Mano de obra: pruebas automatizadas & 20 h & 15 & 300 \\ \hline
-Mano de obra: memoria del Trabajo Final & 50 h & 15 & 750 \\ \hline
-Mano de obra: presentación y cierre & 20 h & 15 & 300 \\ \hline
+Mano de obra: gestión y organización del proyecto & 38 h & 15 & 570 \\ \hline
+Mano de obra: relevamiento y estado del arte & 56 h & 15 & 840 \\ \hline
+Mano de obra: conjunto de datos & 84 h & 15 & 1.260 \\ \hline
+Mano de obra: desarrollo de los detectores & 122 h & 15 & 1.830 \\ \hline
+Mano de obra: optimización y cuantización & 46 h & 15 & 690 \\ \hline
+Mano de obra: intermediario (\textit{gate}) e integración & 66 h & 15 & 990 \\ \hline
+Mano de obra: evaluación y banco de pruebas & 66 h & 15 & 990 \\ \hline
+Mano de obra: pruebas automatizadas & 18 h & 15 & 270 \\ \hline
+Mano de obra: memoria del Trabajo Final & 46 h & 15 & 690 \\ \hline
+Mano de obra: presentación y cierre & 18 h & 15 & 270 \\ \hline
+Mano de obra: buffer para imprevistos & 40 h & 15 & 600 \\ \hline
 Suscripción a Google Colab Pro & 5 meses & 12 & 60 \\ \hline
 Conjuntos de datos públicos & --- & 0 & 0 \\ \hline
 Modelos abiertos y software de código abierto & --- & 0 & 0 \\ \hline
@@ -634,113 +555,143 @@ Conexión a internet (proporcional) & 13 meses & --- & 60 \\ \hline
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+A continuación se identifican los principales riesgos del proyecto. Para cada uno se estima la severidad (S) y la probabilidad de ocurrencia (O) en una escala de 1 a 10, y se calcula el número de prioridad de riesgo como RPN${}={}$S${}\times{}$O. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar las medidas de mitigación.
 
-Riesgo 2:
+Riesgo 1: no disponer de conjuntos de datos adecuados para caracterizar acciones maliciosas de agentes.
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 9. Sin datos representativos no es posible entrenar ni evaluar los detectores, lo que compromete el núcleo del Trabajo Final.
+	\item Ocurrencia (O): 6. Es un área reciente; existen conjuntos de \textit{prompt injection}, pero no necesariamente con el etiquetado de permitir, revisar o bloquear que requiere el proyecto.
 \end{itemize}
 
-Riesgo 3:
+Riesgo 2: que la variante liviana no alcance las metas de desempeño (latencia y memoria) por el tamaño o el costo de los modelos.
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 6. Afecta un requerimiento de desempeño, aunque el trabajo sigue siendo válido para comparar enfoques entre sí.
+	\item Ocurrencia (O): 6. Los modelos de decisión pueden exceder los límites de RAM o de latencia en CPU sin optimización previa.
 \end{itemize}
 
+Riesgo 3: retrasos en el cronograma por la disponibilidad \textit{part-time} de la responsable.
+\begin{itemize}
+	\item Severidad (S): 5. Un desvío moderado puede comprimir las etapas finales, pero no impide completar el trabajo.
+	\item Ocurrencia (O): 8. La modalidad \textit{part-time} y la extensión del proyecto hacen que los desvíos sean probables.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+Riesgo 4: pérdida o cambios en los límites de los servicios de cómputo gratuitos (por ejemplo, Google Colab).
+\begin{itemize}
+	\item Severidad (S): 5. Obliga a reorganizar los experimentos que requieren GPU, con impacto acotado.
+	\item Ocurrencia (O): 5. Los límites de estos servicios cambian con cierta frecuencia.
+\end{itemize}
+
+Riesgo 5: restricciones de licencias de modelos o conjuntos de datos de terceros que impidan su uso académico.
+\begin{itemize}
+	\item Severidad (S): 6. Puede obligar a reemplazar un modelo o un conjunto de datos y rehacer parte del trabajo.
+	\item Ocurrencia (O): 4. La mayoría de los modelos y datos previstos son abiertos y de uso académico permitido.
+\end{itemize}
+
+\vspace{0.3cm}
+Tabla de gestión de riesgos (el RPN se calcula como RPN${}={}$S${}\times{}$O):
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+1. Datos inadecuados o insuficientes & 9 & 6 & 54 & 9 & 3 & 27 \\ \hline
+2. Metas de desempeño no alcanzadas & 6 & 6 & 36 & 6 & 3 & 18 \\ \hline
+3. Retrasos por disponibilidad \textit{part-time} & 5 & 8 & 40 & 5 & 5 & 25 \\ \hline
+4. Límites de cómputo gratuito & 5 & 5 & 25 & 5 & 5 & 25 \\ \hline
+5. Restricciones de licencias & 6 & 4 & 24 & 6 & 4 & 24 \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
+Criterio adoptado: se elabora un plan de mitigación para los riesgos cuyo RPN sea mayor a 35. En consecuencia, se mitigan los riesgos 1, 2 y 3. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar la mitigación.
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Plan de mitigación:
+\begin{itemize}
+	\item Riesgo 1: construir un conjunto de datos sintético propio con criterios claros de etiquetado (previsto en el alcance), complementado con datos públicos parcialmente aplicables, y documentar su origen y sus \textit{checksums}. Con esto la ocurrencia baja de 6 a 3 (S*${}={}$9, O*${}={}$3, RPN*${}={}$27).
+	\item Riesgo 2: aplicar cuantización y comparar versiones en distintas precisiones, y acotar las metas de latencia y memoria a la variante liviana sobre CPU. Con esto la ocurrencia baja de 6 a 3 (S*${}={}$6, O*${}={}$3, RPN*${}={}$18).
+	\item Riesgo 3: reservar un \textit{buffer} de 40~h para imprevistos (sección~\ref{sec:wbs}), planificar con holgura y sostener el seguimiento periódico con el director. Con esto la ocurrencia baja de 8 a 5 (S*${}={}$5, O*${}={}$5, RPN*${}={}$25).
+\end{itemize}
 
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
-
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
-
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
+Los riesgos 4 y 5 quedan por debajo del umbral y se monitorean sin un plan de mitigación específico.
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+Se seleccionan los diez requerimientos considerados más críticos para el valor del Trabajo Final. Para cada uno se indican las acciones de verificación (que consideran al entregable como ``caja blanca'', con conocimiento de su funcionamiento interno) y de validación (que lo consideran como ``caja negra'', contrastando el resultado contra los criterios acordados con el director). En este proyecto académico e individual, la validación se realiza con el director del Trabajo Final como referente de aceptación.
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+\item Req 1.1 (funcional): evaluar cada acción y emitir una de tres decisiones (permitir, revisar o bloquear).
+	\begin{itemize}
+		\item Verificación: pruebas automatizadas que recorran casos conocidos y comprueben que la salida siempre pertenece al conjunto de decisiones válidas y que la acción no se ejecuta antes de la evaluación.
+		\item Validación: revisión con el director de un conjunto de escenarios de ejemplo, confirmando que las decisiones emitidas son las esperadas.
+	\end{itemize}
+
+\item Req 1.2 (funcional): usar únicamente información disponible antes de la acción, sin información posterior ni etiquetas de referencia.
+	\begin{itemize}
+		\item Verificación: inspección del código y de los \textit{pipelines} de datos para confirmar que las etiquetas y las señales posteriores a la acción no se usan como entrada durante la inferencia.
+		\item Validación: contrastar los resultados con el director mediante una prueba de fuga de información, verificando que el desempeño no dependa de datos no disponibles en un uso real.
+	\end{itemize}
+
+\item Req 1.3 (funcional): aplicar reglas de permisos verificables, independientes del modelo de IA.
+	\begin{itemize}
+		\item Verificación: pruebas unitarias sobre el motor de reglas que comprueben que una prohibición explícita nunca es anulada por la puntuación del modelo.
+		\item Validación: revisión con el director de un conjunto de reglas de ejemplo (por ejemplo, la lectura de archivos de credenciales) y su cumplimiento.
+	\end{itemize}
+
+\item Req 1.4 (funcional): intercambiar el mecanismo de evaluación del riesgo sin modificar el resto de los componentes.
+	\begin{itemize}
+		\item Verificación: comprobar que las tres familias de detectores implementan la misma interfaz y se seleccionan por configuración, sin cambios en el resto del sistema.
+		\item Validación: demostrar al director el reemplazo de un detector por otro ejecutando el mismo caso con cada variante.
+	\end{itemize}
+
+\item Req 2.1 (desempeño): latencia promedio no superior a 500~ms en la variante liviana sobre CPU.
+	\begin{itemize}
+		\item Verificación: medición automatizada de la latencia promedio sobre un lote de solicitudes en el entorno de referencia, registrando los resultados.
+		\item Validación: presentar al director el informe de latencia y confirmar que cumple el umbral acordado.
+	\end{itemize}
+
+\item Req 2.2 (desempeño): funcionar usando como mucho 2~GB de memoria RAM adicional.
+	\begin{itemize}
+		\item Verificación: monitoreo del consumo de memoria durante la ejecución de la variante liviana y comparación contra el límite.
+		\item Validación: revisión con el director del reporte de uso de memoria en el equipo de referencia.
+	\end{itemize}
+
+\item Req 3.1 (seguridad y privacidad): ejecutar la inferencia de forma totalmente local, sin transmitir datos a servicios externos.
+	\begin{itemize}
+		\item Verificación: análisis del tráfico de red durante la inferencia para confirmar que no hay envíos a servicios externos en el modo local.
+		\item Validación: demostración al director de una ejecución local completa, sin conexión a internet.
+	\end{itemize}
+
+\item Req 4.2 (documentación): permitir reproducir los experimentos con los conjuntos de datos públicos.
+	\begin{itemize}
+		\item Verificación: ejecutar el procedimiento documentado en un entorno limpio y comprobar que los resultados coinciden con los reportados.
+		\item Validación: que el director reproduzca un experimento a partir de la documentación entregada y obtenga resultados equivalentes.
+	\end{itemize}
+
+\item Req 5.1 (testing): incluir pruebas automatizadas del componente de control.
+	\begin{itemize}
+		\item Verificación: revisar la cobertura de las pruebas sobre las decisiones de permitir, revisar y bloquear y sobre el cumplimiento de las reglas de permisos.
+		\item Validación: ejecutar la batería de pruebas frente al director y confirmar que pasa en su totalidad.
+	\end{itemize}
+
+\item Req 6.1 (interoperabilidad): exponer la evaluación mediante una función independiente del modelo de riesgo interno.
+	\begin{itemize}
+		\item Verificación: pruebas que invoquen la función con distintos modelos internos y comprueben que la firma y el formato de la decisión no cambian.
+		\item Validación: revisión con el director de la integración del \textit{gate} en un caso de uso de ejemplo mediante esa función.
+	\end{itemize}
 \end{itemize}
-
-\end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+Al finalizar el proyecto se realizará una reunión final de evaluación entre la responsable y el director del Trabajo Final, con el objetivo de cerrar formalmente el trabajo y dejar registro de las lecciones aprendidas. Las pautas para esa reunión son las siguientes.
 
 \begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
+	\item Análisis del cumplimiento del Plan de Proyecto original. La responsable preparará un informe de cierre que compare lo planificado con lo efectivamente ejecutado: horas reales frente a las estimadas por grupo de tareas, cumplimiento del cronograma (fechas de inicio y de fin) y uso del \textit{buffer} para imprevistos. Ese informe se revisará junto con el director durante la reunión, identificando los desvíos y sus causas.
+	\item Registro de técnicas, procedimientos y problemas. La responsable documentará, en un apartado de la memoria del Trabajo Final, qué técnicas y procedimientos resultaron útiles y cuáles no, los principales problemas que surgieron durante el desarrollo y cómo se resolvieron. Este registro servirá como referencia para trabajos futuros y quedará validado por el director.
+	\item Agradecimientos. La responsable incluirá una sección de agradecimientos en la memoria, dirigida al director, a la cátedra y a quienes colaboraron u orientaron el trabajo. Al tratarse de un Trabajo Final académico e individual, no se prevé un acto ni gastos asociados: el reconocimiento se canaliza a través de esa sección y de la presentación pública.
 \end{itemize}
-
-\end{consigna}
 
 \end{document}
