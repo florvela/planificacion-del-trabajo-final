@@ -16,7 +16,7 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Ing. Esp. Florencia Priscilla Vela}
+\autor{Esp. Ing. Florencia Priscilla Vela}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Ms. Abraham Adolfo Rodriguez Zepeda}
@@ -82,7 +82,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD~9.490, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD~9.490, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -91,9 +91,9 @@ Se adjunta a esta acta la planificación inicial.
 % Esta parte se construye sola con la información que hayan cargado en el preámbulo del documento y no debe modificarla
 \begin{table}[ht]
 \centering
-\begin{tabular}{ccc}
-\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
-\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
+\begin{tabular}{c}
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} \vspace{2.5cm} \\
+\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular} \vspace{2.5cm} \\
 \end{tabular}
 \end{table}
 
@@ -151,7 +151,6 @@ En la tabla~\ref{tab:interesados} se identifican los interesados del proyecto. A
 \hline
 \rowcolor[HTML]{C0C0C0}
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Cliente       & Cátedra de Trabajo Final & FIUBA & Validador académico \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumna 	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
 Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & Desarrolladores, analistas y perfiles de finanzas, RR.\,HH.\ e IT \\ \hline
@@ -160,7 +159,6 @@ Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & De
 
 A continuación se describen las principales características de cada interesado:
 \begin{itemize}
-	\item \textbf{Cliente:} la cátedra actúa como validadora académica del trabajo; aprueba los resultados y verifica que se cumplan los objetivos comprometidos en el acta.
 	\item \textbf{Responsable:} ejecuta la totalidad del trabajo técnico y la redacción de la memoria. Su disponibilidad es de tipo \textit{part-time}, lo que condiciona el cronograma y obliga a planificar con holgura.
 	\item \textbf{Orientador:} el Director del Trabajo Final es experto en la temática y colabora en la definición de los requerimientos, la metodología de evaluación y la revisión de la memoria.
 	\item \textbf{Usuario final:} valora la privacidad (que sus datos no salgan de su equipo), un bajo impacto en la fluidez de uso (pocas falsas alarmas) y que la solución funcione en computadoras de capacidad modesta.
@@ -221,22 +219,22 @@ Los requerimientos se agrupan por afinidad.
 \begin{enumerate}
 	\item Requerimientos funcionales:
 		\begin{enumerate}
-			\item El sistema debe evaluar cada acción propuesta por el agente antes de ejecutarla y devolver una de tres decisiones: permitir, revisar o bloquear.
-			\item El sistema debe usar como entrada únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos); no debe usar información del futuro ni las etiquetas.
+			\item El sistema debe evaluar cada acción propuesta por el agente antes de ejecutarla y emitir una de tres decisiones: permitir, revisar o bloquear.
+			\item El sistema debe usar como entrada únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos). No debe utilizar información posterior a la acción ni las etiquetas de referencia empleadas durante el entrenamiento o la evaluación.
 			\item El sistema debe aplicar reglas de permisos verificables, independientes del modelo de IA (por ejemplo, denegar la lectura de archivos de credenciales).
-			\item El sistema debe permitir intercambiar el modelo de riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema.
-			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, y marcar los desvíos respecto del patrón habitual.
-			\item El componente debe seleccionar automáticamente la variante del modelo de evaluación de riesgo en función de los recursos computacionales disponibles en el entorno de ejecución, considerando la capacidad de CPU, la disponibilidad de GPU y la posibilidad de utilizar servicios en la nube.
+			\item El sistema debe permitir intercambiar el mecanismo de evaluación del riesgo (detección de anomalías, clasificación o modelo preentrenado) sin modificar el resto de los componentes.
+			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, e identificar desviaciones respecto de los patrones de comportamiento habituales.
+			\item El componente debe seleccionar automáticamente la variante del modelo de evaluación de riesgo en función de los recursos computacionales disponibles en el entorno de ejecución, que considere la capacidad de CPU, la disponibilidad de GPU y la posibilidad de utilizar servicios en la nube.
 		\end{enumerate}
 	\item Requerimientos de desempeño:
 		\begin{enumerate}
-			\item El sistema debe tomar cada decisión rápidamente; en la variante liviana corriendo en CPU, cada decisión debe tardar en promedio como mucho 500~ms.
+			\item El sistema debe tomar cada decisión rápidamente; en la variante liviana ejecutada en CPU, el tiempo promedio entre la recepción de una solicitud y la emisión de una decisión no debe superar los 500~ms.
 			\item El sistema debe poder funcionar usando como mucho 2~GB de memoria RAM adicional.
 			\item El sistema debe ocupar como máximo 1~GB en disco.
 		\end{enumerate}
 	\item Requerimientos de seguridad y privacidad:
 		\begin{enumerate}
-			\item La inferencia debe poder ejecutarse 100\,\% de forma local, sin enviar datos a internet.
+			\item El sistema debe ofrecer un modo de funcionamiento en el que toda la inferencia se ejecute localmente, sin transmitir datos a servicios externos.
 			\item El uso de la nube debe ser opcional y explícitamente autorizado por el usuario.
 		\end{enumerate}
 	\item Requerimientos de documentación:
@@ -247,11 +245,11 @@ Los requerimientos se agrupan por afinidad.
 		\end{enumerate}
 	\item Requerimientos de testing:
 		\begin{enumerate}
-			\item Pruebas automatizadas del \textit{gate}.
+			\item El proyecto debe incluir pruebas automatizadas del componente de control que verifiquen las decisiones de permitir, revisar y bloquear acciones, así como el cumplimiento de las reglas de permisos.
 		\end{enumerate}
 	\item Requerimientos de interoperabilidad:
 		\begin{enumerate}
-			\item Interfaz simple que reciba el contexto y la acción propuesta y devuelva la decisión, para integrarse con distintas plataformas anfitrionas, incluido un \textit{sandbox} de agentes.
+			\item El sistema debe exponer su evaluación mediante una función que reciba el contexto de la sesión y la acción propuesta y devuelva la decisión: permitir, revisar o bloquear. La interfaz debe ser independiente del modelo de riesgo utilizado internamente, de modo que este pueda cambiarse sin alterar la forma de invocación.
 		\end{enumerate}
 	\item Requerimientos regulatorios y de normas:
 		\begin{enumerate}
@@ -263,7 +261,7 @@ Los requerimientos se agrupan por afinidad.
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:requerimientos}) y del alcance (sección~\ref{sec:alcance}). Se escriben desde la perspectiva de quienes desean cada capacidad: el \textbf{usuario final} (personas y equipos que delegan tareas en agentes de IA), el \textbf{administrador de seguridad} (quien configura reglas y perfiles), el \textbf{desarrollador integrador} (quien incorpora el \textit{gate} a una plataforma anfitriona) y la \textbf{responsable} del Trabajo Final (en su rol de investigadora y de desarrolladora de la solución).
+Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:requerimientos}) y del alcance (sección~\ref{sec:alcance}). Se escriben desde la perspectiva de quienes desean cada capacidad: el usuario final (personas y equipos que delegan tareas en agentes de IA), el administrador de seguridad (quien configura reglas y perfiles), el desarrollador integrador (quien incorpora el \textit{gate} a una plataforma anfitriona) y la responsable del Trabajo Final (en su rol de investigadora y de desarrolladora de la solución).
 
 \textbf{Criterio de ponderación.} El tamaño de cada historia se expresa en \textit{story points} y se calcula como la suma de tres factores, cada uno valorado en una escala de 1 a 5:
 \begin{itemize}
@@ -274,57 +272,96 @@ Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:req
 De este modo, el puntaje mínimo posible es 3 y el máximo 15. Cuanto mayor es el valor, mayor es el tamaño relativo de la historia.
 
 \begin{enumerate}
-	\item ``Como usuario final que delega tareas en un agente de IA, quiero que cada acción propuesta se evalúe antes de ejecutarse y se clasifique en permitir, revisar o bloquear, para evitar que una acción riesgosa provoque un daño difícil de revertir.''
+	\item Como usuario final que delega tareas en un agente de IA, \\
+	quiero que cada acción propuesta se evalúe antes de ejecutarse y se clasifique en permitir, revisar o bloquear, \\
+	para evitar que una acción riesgosa provoque un daño difícil de revertir.
 
-	\textit{Story points}: 12 (complejidad: 5, dificultad: 4, incertidumbre: 3)
+	\textit{Story points}: 12 (complejidad: 5, dificultad: 4, incertidumbre: 3) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como usuario final, quiero que la decisión se tome usando únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos), para confiar en que el sistema no depende de datos que no existirían en un uso real.''
+	\item Como usuario final, \\
+	quiero que la decisión se tome usando únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos), \\
+	para asegurar que el sistema utiliza únicamente información disponible en el momento de tomar la decisión.
 
-	\textit{Story points}: 8 (complejidad: 2, dificultad: 3, incertidumbre: 3)
+	\textit{Story points}: 8 (complejidad: 2, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como administrador de seguridad, quiero definir reglas de permisos verificables e independientes del modelo de IA (por ejemplo, negar la lectura de archivos de credenciales), para garantizar prohibiciones que el modelo no pueda anular.''
+	\item Como administrador de seguridad, \\
+	quiero definir reglas de permisos verificables e independientes del modelo de IA (por ejemplo, prohibir la lectura de archivos de credenciales), \\
+	para garantizar prohibiciones que el modelo no pueda anular.
 
-	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2)
+	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como investigadora, quiero poder intercambiar el modelo de riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema, para comparar los distintos enfoques en igualdad de condiciones.''
+	\item Como investigadora, \\
+	quiero poder intercambiar el mecanismo de evaluación del riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema, \\
+	para comparar los distintos enfoques en igualdad de condiciones.
 
-	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2)
+	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como administrador de seguridad, quiero perfiles por usuario y por grupo de actividad que marquen los desvíos respecto del patrón habitual, para detectar comportamientos anómalos según el contexto de cada rol.''
+	\item Como administrador de seguridad, \\
+	quiero perfiles por usuario y por grupo de actividad que permitan identificar desviaciones respecto del patrón habitual, \\
+	para detectar comportamientos anómalos según el contexto de cada rol.
 
-	\textit{Story points}: 11 (complejidad: 3, dificultad: 4, incertidumbre: 4)
+	\textit{Story points}: 11 (complejidad: 3, dificultad: 4, incertidumbre: 4) \\
+	\textit{Prioridad}: media
 
-	\item ``Como usuario final con un equipo de recursos limitados, quiero que el sistema elija automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM), para usar la solución sin tener que configurarla manualmente.''
+	\item Como usuario final con un equipo de recursos computacionales limitados, \\
+	quiero que el sistema elija automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM), \\
+	para usar la solución sin tener que configurarla manualmente.
 
-	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2)
+	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \\
+	\textit{Prioridad}: media
 
-	\item ``Como usuario final, quiero que cada decisión se tome en a lo sumo 500~ms en promedio en la variante liviana sobre CPU, para no entorpecer el flujo de trabajo del agente.''
+	\item Como usuario final, \\
+	quiero que el sistema emita cada decisión en un tiempo promedio no superior a 500~ms cuando se ejecute la variante liviana sobre CPU, \\
+	para no entorpecer el flujo de trabajo del agente.
 
-	\textit{Story points}: 10 (complejidad: 2, dificultad: 4, incertidumbre: 4)
+	\textit{Story points}: 10 (complejidad: 2, dificultad: 4, incertidumbre: 4) \\
+	\textit{Prioridad}: media
 
-	\item ``Como usuario final, quiero que la inferencia se ejecute de forma 100\,\% local sin enviar datos a internet, y que el uso de la nube sea opcional y explícitamente autorizado, para preservar la privacidad de mi información.''
+	\item Como usuario final, \\
+	quiero que la inferencia se ejecute de forma 100\,\% local sin enviar datos a internet, y que el uso de la nube sea opcional y explícitamente autorizado, \\
+	para preservar la privacidad de mi información.
 
-	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2)
+	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \\
+	\textit{Prioridad}: media
 
-	\item ``Como desarrollador integrador, quiero una interfaz simple que reciba el contexto y la acción propuesta y devuelva la decisión, para incorporar el \textit{gate} a distintas plataformas anfitrionas, incluido un \textit{sandbox} de agentes.''
+	\item Como desarrollador integrador, \\
+	quiero una función que reciba el contexto de la sesión y la acción propuesta y devuelva la decisión, \\
+	para incorporar el \textit{gate} al entorno que ejecuta al agente sin acoplarlo a una implementación particular.
 
-	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como investigadora, quiero un banco de pruebas (\textit{benchmark}) reproducible que mida, por enfoque, la detección de ataques, las falsas alarmas, la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo, para identificar el mejor equilibrio entre seguridad, usabilidad y costo.''
+	\item Como investigadora, \\
+	quiero un banco de pruebas (\textit{benchmark}) reproducible que mida, por enfoque, la tasa de detección de ataque, las falsas alarmas, la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo, \\
+	para identificar el mejor equilibrio entre seguridad, usabilidad y costo.
 
-	\textit{Story points}: 10 (complejidad: 4, dificultad: 3, incertidumbre: 3)
+	\textit{Story points}: 10 (complejidad: 4, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: media
 
-	\item ``Como investigadora, quiero construir un conjunto de datos con ejemplos públicos y sintéticos y criterios claros de permitir, revisar o bloquear, para entrenar y evaluar los detectores sobre tareas legítimas, intentos de desvío y situaciones ambiguas.''
+	\item Como investigadora, \\
+	quiero construir un conjunto de datos con ejemplos públicos y sintéticos y criterios claros de permitir, revisar o bloquear, \\
+	para entrenar y evaluar los detectores sobre tareas legítimas, intentos de desvío y situaciones ambiguas.
 
-	\textit{Story points}: 13 (complejidad: 4, dificultad: 4, incertidumbre: 5)
+	\textit{Story points}: 13 (complejidad: 4, dificultad: 4, incertidumbre: 5) \\
+	\textit{Prioridad}: alta
 
-	\item ``Como investigadora, quiero aplicar cuantización y comparar versiones del mismo modelo en distintas precisiones, para hacerlo viable en equipos modestos sin perder demasiada capacidad de detección.''
+	\item Como investigadora, \\
+	quiero aplicar cuantización y comparar versiones del mismo modelo en distintas precisiones, \\
+	para hacerlo viable en equipos modestos sin perder demasiada capacidad de detección.
 
-	\textit{Story points}: 9 (complejidad: 3, dificultad: 3, incertidumbre: 3)
+	\textit{Story points}: 9 (complejidad: 3, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: baja
 
-	\item ``Como responsable del proyecto, quiero pruebas automatizadas del \textit{gate}, para asegurar que las reglas y las decisiones se mantienen correctas frente a los cambios del sistema.''
+	\item Como responsable del proyecto, \\
+	quiero pruebas automatizadas del \textit{gate}, \\
+	para asegurar que las reglas y las decisiones se mantienen correctas frente a los cambios del sistema.
 
-	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \\
+	\textit{Prioridad}: baja
 \end{enumerate}
 
 El total acumulado del \textit{product backlog} es de 111 \textit{story points}.
@@ -352,61 +389,65 @@ Los entregables principales del proyecto son:
 Las tareas se agrupan por afinidad y se relacionan con los requerimientos definidos en la sección~\ref{sec:requerimientos}. La estimación se expresa en horas (h).
 
 \begin{enumerate}
-\item Gestión y organización del proyecto (40 h)
+\item Gestión y organización del proyecto (38 h)
 	\begin{enumerate}
 	\item Planificación del proyecto y elaboración del plan de GdP (24 h)
-	\item Seguimiento del avance y reuniones de orientación con el director (16 h)
+	\item Seguimiento del avance y reuniones de orientación con el director (14 h)
 	\end{enumerate}
-\item Relevamiento y estado del arte (60 h)
+\item Relevamiento y estado del arte (56 h)
 	\begin{enumerate}
 	\item Revisión de la literatura sobre \textit{prompt injection} y seguridad en agentes (20 h)
 	\item Estudio de modelos de protección existentes (Llama Guard, ShieldGemma, Granite Guardian, entre otros) (20 h)
-	\item Estudio de mecanismos de control de herramientas y de detección de anomalías (20 h)
+	\item Estudio de mecanismos de control de herramientas y de detección de anomalías (16 h)
 	\end{enumerate}
-\item Conjunto de datos (90 h)
+\item Conjunto de datos (84 h)
 	\begin{enumerate}
 	\item Definición de criterios para distinguir acciones permitidas, a revisar y a bloquear (20 h)
 	\item Recopilación y curación de conjuntos de datos públicos (24 h)
-	\item Generación de ejemplos sintéticos (tareas legítimas, intentos de desvío y casos ambiguos) (30 h)
+	\item Generación de ejemplos sintéticos (tareas legítimas, intentos de desvío y casos ambiguos) (24 h)
 	\item Documentación del conjunto de datos y cálculo de \textit{checksums} (16 h)
 	\end{enumerate}
-\item Desarrollo de los detectores (130 h)
+\item Desarrollo de los detectores (122 h)
 	\begin{enumerate}
 	\item Implementación del detector por anomalías (30 h)
-	\item Implementación de los clasificadores entrenados (34 h)
+	\item Implementación de los clasificadores entrenados (30 h)
 	\item Integración de los modelos de decisión preentrenados (32 h)
-	\item Combinación de los detectores (34 h)
+	\item Combinación de los detectores (30 h)
 	\end{enumerate}
-\item Optimización y cuantización (50 h)
+\item Optimización y cuantización (46 h)
 	\begin{enumerate}
-	\item Cuantización de los modelos (26 h)
+	\item Cuantización de los modelos (22 h)
 	\item Comparación de versiones en distintas precisiones y su costo (24 h)
 	\end{enumerate}
-\item Intermediario (\textit{gate}) e integración (70 h)
+\item Intermediario (\textit{gate}) e integración (66 h)
 	\begin{enumerate}
 	\item Diseño e implementación del motor de reglas de permisos verificables (24 h)
-	\item Implementación del \textit{gate} y de su interfaz (contexto y acción a decisión) (26 h)
+	\item Implementación del \textit{gate} y de su interfaz (contexto y acción a decisión) (22 h)
 	\item Matriz de decisión y selección automática de la variante según los recursos (20 h)
 	\end{enumerate}
-\item Evaluación y banco de pruebas (70 h)
+\item Evaluación y banco de pruebas (66 h)
 	\begin{enumerate}
 	\item Diseño del \textit{benchmark} y de las métricas (20 h)
-	\item Ejecución de los experimentos (30 h)
+	\item Ejecución de los experimentos (26 h)
 	\item Análisis de los resultados (20 h)
 	\end{enumerate}
-\item Pruebas automatizadas (20 h)
+\item Pruebas automatizadas (18 h)
 	\begin{enumerate}
-	\item Desarrollo de las pruebas automatizadas del \textit{gate} (20 h)
+	\item Desarrollo de las pruebas automatizadas del \textit{gate} (18 h)
 	\end{enumerate}
-\item Memoria del Trabajo Final (50 h)
+\item Memoria del Trabajo Final (46 h)
 	\begin{enumerate}
-	\item Redacción de la memoria (30 h)
+	\item Redacción de la memoria (26 h)
 	\item Revisión e incorporación de correcciones (20 h)
 	\end{enumerate}
-\item Presentación y cierre (20 h)
+\item Presentación y cierre (18 h)
 	\begin{enumerate}
-	\item Elaboración de la presentación (12 h)
+	\item Elaboración de la presentación (10 h)
 	\item Ensayo de la presentación y cierre del proyecto (8 h)
+	\end{enumerate}
+\item Buffer para imprevistos (40 h)
+	\begin{enumerate}
+	\item Tiempo reservado para retrasos, cambios de alcance y problemas técnicos (40 h)
 	\end{enumerate}
 \end{enumerate}
 
