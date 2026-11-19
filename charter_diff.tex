@@ -1,7 +1,7 @@
 \documentclass[
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL scratch_charter_v2.tex   Thu Nov 12 21:10:44 2026
-%DIF ADD charter.tex              Thu Nov 12 21:08:47 2026
+%DIF DEL /tmp/charter_v3.tex   Fri Nov 20 00:25:41 2026
+%DIF ADD charter.tex           Fri Nov 20 00:22:06 2026
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
@@ -19,11 +19,7 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-%DIF 19c19
-%DIF < \autor{Ing. Esp. Florencia Priscilla Vela}
-%DIF -------
-\autor{Esp. Ing. Florencia Priscilla Vela} %DIF > 
-%DIF -------
+\autor{Esp. Ing. Florencia Priscilla Vela}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Ms. Abraham Adolfo Rodriguez Zepeda}
@@ -32,8 +28,13 @@
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+%DIF 28-29c28-29
+%DIF < \cliente{Nombre del cliente}
+%DIF < \empresaCliente{Empresa del cliente}
+%DIF -------
+\cliente{Sebastian Alterman} %DIF > 
+\empresaCliente{ExxonMobil Corporation} %DIF > 
+%DIF -------
  
 \fechaINICIO{19 de octubre de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{7 de diciembre de 2026} 	%Fecha de final de cursada de GdP
@@ -106,9 +107,8 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 6 inclusive                & 29 de octubre de 2026 \\ \hline
 2      & Se realizan las correcciones recomendadas y se completa hasta el punto 9 inclusive & 6 de noviembre de 2026 \\ \hline
-%DIF < 3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
-\DIFaddbeginFL \DIFaddFL{3      }& \DIFaddFL{Se aplican las correcciones recomendadas y se completa el plan hasta el punto 15 inclusive }& \DIFaddFL{12 de noviembre de 2026 }\\ \hline
-\DIFaddendFL %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
+3      & Se aplican las correcciones recomendadas y se completa el plan hasta el punto 15 inclusive & 12 de noviembre de 2026 \\ \hline
+%4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
 
@@ -128,7 +128,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD~9.490, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública \DIFdelbegin \DIFdel{el }\DIFdelend \DIFaddbegin \DIFadd{en }\DIFaddend \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema que evalúa cada acción propuesta por un agente de IA antes de ejecutarla y decide si permitirla, revisarla o bloquearla según su riesgo. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD~9.490, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -137,23 +137,15 @@ Se adjunta a esta acta la planificación inicial.
 % Esta parte se construye sola con la información que hayan cargado en el preámbulo del documento y no debe modificarla
 \begin{table}[ht]
 \centering
-\DIFdelbeginFL %DIFDELCMD < \begin{tabular}{ccc}
+\DIFdelbeginFL %DIFDELCMD < \begin{tabular}{c}
 %DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \begin{tabular}{c}
-\DIFaddendFL \begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} \DIFdelbeginFL %DIFDELCMD < & %%%
-\DIFdelFL{\hspace{2cm} }%DIFDELCMD < & %%%
-\DIFdelendFL \DIFaddbeginFL \vspace{2.5cm} \\
-\DIFaddendFL \begin{tabular}[c]{@{}c@{}} \DIFdelbeginFL %DIFDELCMD < \clientename %%%
-\DIFdelendFL \DIFaddbeginFL \supname \DIFaddendFL \\ \DIFdelbeginFL %DIFDELCMD < \empclientename %%%
-\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Director del Trabajo Final}\DIFaddendFL \end{tabular} \vspace{2.5cm} \\
-\DIFdelbeginFL %DIFDELCMD < \multicolumn{3}{c}{%
-{%DIFAUXCMD
-%DIFDELCMD < \begin{tabular}[c]{@{}c@{}} \supname \\ %%%
-\DIFdelFL{Director del Trabajo Final}%DIFDELCMD < \end{tabular}%%%
-} %DIFAUXCMD
-%DIFDELCMD < \vspace{2.5cm} \\
+\DIFdelendFL \DIFaddbeginFL \begin{tabular}{ccc}
+\DIFaddendFL \begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} \DIFdelbeginFL %DIFDELCMD < \vspace{2.5cm} \\
 %DIFDELCMD < %%%
-\DIFdelendFL \end{tabular}
+\DIFdelendFL \DIFaddbeginFL & \DIFaddFL{\hspace{2cm} }& \DIFaddendFL \begin{tabular}[c]{@{}c@{}}\DIFdelbeginFL %DIFDELCMD < \supname %%%
+\DIFdelendFL \DIFaddbeginFL \clientename \DIFaddendFL \\ \DIFdelbeginFL \DIFdelFL{Director del Trabajo Final}\DIFdelendFL \DIFaddbeginFL \empclientename \DIFaddendFL \end{tabular} \vspace{2.5cm} \\
+\DIFaddbeginFL \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ \DIFaddFL{Director del Trabajo Final}\end{tabular}} \vspace{2.5cm} \\
+\DIFaddendFL \end{tabular}
 \end{table}
 
 \pagebreak
@@ -173,7 +165,7 @@ En este contexto, el proyecto propone desarrollar un componente de control que a
 
 Para tomar cada decisión, el sistema considera tres fuentes de información: los permisos del agente, la herramienta que pretende utilizar junto con sus argumentos y el contexto reciente de la sesión. La evaluación combina el grado en que una acción se aparta del comportamiento esperado con su coherencia respecto del objetivo de la tarea y los permisos otorgados. Se busca que el control funcione en tiempo real, con baja latencia, y que pueda ejecutarse de manera local y liviana en la máquina del usuario para preservar la privacidad.
 
-El funcionamiento del componente de control se presenta en la figura~\ref{fig:diagBloques}. Cuando el agente propone una acción, el componente de control aplica primero un conjunto de reglas explícitas de permisos independientes del modelo de IA. Por ejemplo, una regla puede impedir que un agente con determinado rol lea un archivo de credenciales. Si estas reglas no son suficientes para resolver la decisión, interviene un modelo de riesgo que evalúa la acción considerando el contexto de la sesión. La decisión final integra ambos mecanismos: solo las acciones clasificadas como permitidas llegan al ejecutor; las que requieren revisión quedan pendientes y las bloqueadas no se ejecutan. Las restricciones establecidas por las reglas mantienen su validez independientemente de la puntuación del modelo, de modo que este no puede anular una prohibición explícita.
+\DIFdelbegin \DIFdel{El }\DIFdelend \DIFaddbegin \DIFadd{En la figura~\ref{fig:diagBloques} se presenta el }\DIFaddend funcionamiento del componente de control\DIFdelbegin \DIFdel{se presenta en la figura~\ref{fig:diagBloques}}\DIFdelend . Cuando el agente propone una acción, el componente de control aplica primero un conjunto de reglas explícitas de permisos independientes del modelo de IA. Por ejemplo, una regla puede impedir que un agente con determinado rol lea un archivo de credenciales. Si estas reglas no son suficientes para resolver la decisión, interviene un modelo de riesgo que evalúa la acción considerando el contexto de la sesión. La decisión final integra ambos mecanismos: solo las acciones clasificadas como permitidas llegan al ejecutor; las que requieren revisión quedan pendientes y las bloqueadas no se ejecutan. Las restricciones establecidas por las reglas mantienen su validez independientemente de la puntuación del modelo, de modo que este no puede anular una prohibición explícita.
 
 \begin{figure}[H]
 \centering
@@ -210,12 +202,8 @@ En la tabla~\ref{tab:interesados} se identifican los interesados del proyecto. A
 \hline
 \rowcolor[HTML]{C0C0C0}
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-\DIFdelbeginFL \DIFdelFL{Cliente       }%DIFDELCMD < & %%%
-\DIFdelFL{Cátedra de Trabajo Final }%DIFDELCMD < & %%%
-\DIFdelFL{FIUBA }%DIFDELCMD < & %%%
-\DIFdelFL{Validador académico }%DIFDELCMD < \\ \hline
-%DIFDELCMD < %%%
-\DIFdelendFL Responsable   & \authorname       & FIUBA        	& Alumna 	\\ \hline
+\DIFaddbeginFL \DIFaddFL{Cliente       }& \clientename & \empclientename & \DIFaddFL{- }\\ \hline
+\DIFaddendFL Responsable   & \authorname       & FIUBA        	& Alumna 	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
 Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & Desarrolladores, analistas y perfiles de finanzas, RR.\,HH.\ e IT \\ \hline
 \end{tabularx}
@@ -223,11 +211,8 @@ Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & De
 
 A continuación se describen las principales características de cada interesado:
 \begin{itemize}
-	\item \DIFdelbegin \textbf{\DIFdel{Cliente:}} %DIFAUXCMD
-\DIFdel{la cátedra actúa como validadora académica del trabajo; aprueba los resultados y verifica que se cumplan los objetivos comprometidos en el acta.
-	}%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdelend \textbf{Responsable:} ejecuta la totalidad del trabajo técnico y la redacción de la memoria. Su disponibilidad es de tipo \textit{part-time}, lo que condiciona el cronograma y obliga a planificar con holgura.
+	\item \DIFaddbegin \textbf{\DIFadd{Cliente:}} \clientename\DIFadd{, de }\empclientename\DIFadd{, aprueba los resultados del proyecto y verifica que se cumplan los objetivos comprometidos en el acta.
+	}\item \DIFaddend \textbf{Responsable:} ejecuta la totalidad del trabajo técnico y la redacción de la memoria. Su disponibilidad es de tipo \textit{part-time}, lo que condiciona el cronograma y obliga a planificar con holgura.
 	\item \textbf{Orientador:} el Director del Trabajo Final es experto en la temática y colabora en la definición de los requerimientos, la metodología de evaluación y la revisión de la memoria.
 	\item \textbf{Usuario final:} valora la privacidad (que sus datos no salgan de su equipo), un bajo impacto en la fluidez de uso (pocas falsas alarmas) y que la solución funcione en computadoras de capacidad modesta.
 \end{itemize}
@@ -287,22 +272,22 @@ Los requerimientos se agrupan por afinidad.
 \begin{enumerate}
 	\item Requerimientos funcionales:
 		\begin{enumerate}
-			\item El sistema debe evaluar cada acción propuesta por el agente antes de ejecutarla y \DIFdelbegin \DIFdel{devolver }\DIFdelend \DIFaddbegin \DIFadd{emitir }\DIFaddend una de tres decisiones: permitir, revisar o bloquear.
-			\item El sistema debe usar como entrada únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos)\DIFdelbegin \DIFdel{; no debe usar }\DIFdelend \DIFaddbegin \DIFadd{. No debe utilizar }\DIFaddend información \DIFdelbegin \DIFdel{del futuro }\DIFdelend \DIFaddbegin \DIFadd{posterior a la acción }\DIFaddend ni las etiquetas \DIFaddbegin \DIFadd{de referencia empleadas durante el entrenamiento o la evaluación}\DIFaddend .
+			\item El sistema debe evaluar cada acción propuesta por el agente antes de ejecutarla y emitir una de tres decisiones: permitir, revisar o bloquear.
+			\item El sistema debe usar como entrada únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos). No debe utilizar información posterior a la acción ni las etiquetas de referencia empleadas durante el entrenamiento o la evaluación.
 			\item El sistema debe aplicar reglas de permisos verificables, independientes del modelo de IA (por ejemplo, denegar la lectura de archivos de credenciales).
-			\item El sistema debe permitir intercambiar el \DIFdelbegin \DIFdel{modelo de riesgo (}\DIFdelend \DIFaddbegin \DIFadd{mecanismo de evaluación del riesgo (detección de }\DIFaddend anomalías, \DIFdelbegin \DIFdel{clasificador o decisión preentrenada}\DIFdelend \DIFaddbegin \DIFadd{clasificación o modelo preentrenado}\DIFaddend ) sin modificar el resto \DIFdelbegin \DIFdel{del sistema}\DIFdelend \DIFaddbegin \DIFadd{de los componentes}\DIFaddend .
-			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, \DIFdelbegin \DIFdel{y marcar los desvíos respecto del patrón habitual}\DIFdelend \DIFaddbegin \DIFadd{e identificar desviaciones respecto de los patrones de comportamiento habituales}\DIFaddend .
-			\item El componente debe seleccionar automáticamente la variante del modelo de evaluación de riesgo en función de los recursos computacionales disponibles en el entorno de ejecución, \DIFdelbegin \DIFdel{considerando }\DIFdelend \DIFaddbegin \DIFadd{que considere }\DIFaddend la capacidad de CPU, la disponibilidad de GPU y la posibilidad de utilizar servicios en la nube.
+			\item El sistema debe permitir intercambiar el mecanismo de evaluación del riesgo (detección de anomalías, clasificación o modelo preentrenado) sin modificar el resto de los componentes.
+			\item El sistema debe soportar perfiles por usuario y por grupo de actividad, e identificar desviaciones respecto de los patrones de comportamiento habituales.
+			\item El componente debe seleccionar automáticamente la variante del modelo de evaluación de riesgo en función de los recursos computacionales disponibles en el entorno de ejecución, que considere la capacidad de CPU, la disponibilidad de GPU y la posibilidad de utilizar servicios en la nube.
 		\end{enumerate}
 	\item Requerimientos de desempeño:
 		\begin{enumerate}
-			\item El sistema debe tomar cada decisión rápidamente; en la variante liviana \DIFdelbegin \DIFdel{corriendo }\DIFdelend \DIFaddbegin \DIFadd{ejecutada }\DIFaddend en CPU, \DIFdelbegin \DIFdel{cada }\DIFdelend \DIFaddbegin \DIFadd{el tiempo promedio entre la recepción de una solicitud y la emisión de una }\DIFaddend decisión \DIFdelbegin \DIFdel{debe tardar en promedio como mucho }\DIFdelend \DIFaddbegin \DIFadd{no debe superar los }\DIFaddend 500~ms.
+			\item El sistema debe tomar cada decisión rápidamente; en la variante liviana ejecutada en CPU, el tiempo promedio entre la recepción de una solicitud y la emisión de una decisión no debe superar los 500~ms.
 			\item El sistema debe poder funcionar usando como mucho 2~GB de memoria RAM adicional.
 			\item El sistema debe ocupar como máximo 1~GB en disco.
 		\end{enumerate}
 	\item Requerimientos de seguridad y privacidad:
 		\begin{enumerate}
-			\item \DIFdelbegin \DIFdel{La inferencia debe poder ejecutarse 100\,\% de forma local, sin enviar datos a internet}\DIFdelend \DIFaddbegin \DIFadd{El sistema debe ofrecer un modo de funcionamiento en el que toda la inferencia se ejecute localmente, sin transmitir datos a servicios externos}\DIFaddend .
+			\item El sistema debe ofrecer un modo de funcionamiento en el que toda la inferencia se ejecute localmente, sin transmitir datos a servicios externos.
 			\item El uso de la nube debe ser opcional y explícitamente autorizado por el usuario.
 		\end{enumerate}
 	\item Requerimientos de documentación:
@@ -313,13 +298,11 @@ Los requerimientos se agrupan por afinidad.
 		\end{enumerate}
 	\item Requerimientos de testing:
 		\begin{enumerate}
-			\item \DIFdelbegin \DIFdel{Pruebas automatizadas del }\textit{\DIFdel{gate}}%DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{El proyecto debe incluir pruebas automatizadas del componente de control que verifiquen las decisiones de permitir, revisar y bloquear acciones, así como el cumplimiento de las reglas de permisos}\DIFaddend .
+			\item El proyecto debe incluir pruebas automatizadas del componente de control que verifiquen las decisiones de permitir, revisar y bloquear acciones, así como el cumplimiento de las reglas de permisos.
 		\end{enumerate}
 	\item Requerimientos de interoperabilidad:
 		\begin{enumerate}
-			\item \DIFdelbegin \DIFdel{Interfaz simple }\DIFdelend \DIFaddbegin \DIFadd{El sistema debe exponer su evaluación mediante una función }\DIFaddend que reciba el contexto \DIFaddbegin \DIFadd{de la sesión }\DIFaddend y la acción propuesta y devuelva la decisión\DIFdelbegin \DIFdel{, para integrarse con distintas plataformas anfitrionas, incluido un }\textit{\DIFdel{sandbox}} %DIFAUXCMD
-\DIFdel{de agentes}\DIFdelend \DIFaddbegin \DIFadd{: permitir, revisar o bloquear. La interfaz debe ser independiente del modelo de riesgo utilizado internamente, de modo que este pueda cambiarse sin alterar la forma de invocación}\DIFaddend .
+			\item El sistema debe exponer su evaluación mediante una función que reciba el contexto de la sesión y la acción propuesta y devuelva la decisión: permitir, revisar o bloquear. La interfaz debe ser independiente del modelo de riesgo utilizado internamente, de modo que este pueda cambiarse sin alterar la forma de invocación.
 		\end{enumerate}
 	\item Requerimientos regulatorios y de normas:
 		\begin{enumerate}
@@ -331,11 +314,7 @@ Los requerimientos se agrupan por afinidad.
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:requerimientos}) y del alcance (sección~\ref{sec:alcance}). Se escriben desde la perspectiva de quienes desean cada capacidad: el \DIFdelbegin \textbf{\DIFdel{usuario final}} %DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{usuario final }\DIFaddend (personas y equipos que delegan tareas en agentes de IA), el \DIFdelbegin \textbf{\DIFdel{administrador de seguridad}} %DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{administrador de seguridad }\DIFaddend (quien configura reglas y perfiles), el \DIFdelbegin \textbf{\DIFdel{desarrollador integrador}} %DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{desarrollador integrador }\DIFaddend (quien incorpora el \textit{gate} a una plataforma anfitriona) y la \DIFdelbegin \textbf{\DIFdel{responsable}} %DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{responsable }\DIFaddend del Trabajo Final (en su rol de investigadora y de desarrolladora de la solución).
+Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:requerimientos}) y del alcance (sección~\ref{sec:alcance}). Se escriben desde la perspectiva de quienes desean cada capacidad: el usuario final (personas y equipos que delegan tareas en agentes de IA), el administrador de seguridad (quien configura reglas y perfiles), el desarrollador integrador (quien incorpora el \textit{gate} a una plataforma anfitriona) y la responsable del Trabajo Final (en su rol de investigadora y de desarrolladora de la solución).
 
 \textbf{Criterio de ponderación.} El tamaño de cada historia se expresa en \textit{story points} y se calcula como la suma de tres factores, cada uno valorado en una escala de 1 a 5:
 \begin{itemize}
@@ -346,138 +325,97 @@ Las historias de usuario se derivan de los requerimientos (sección~\ref{sec:req
 De este modo, el puntaje mínimo posible es 3 y el máximo 15. Cuanto mayor es el valor, mayor es el tamaño relativo de la historia.
 
 \begin{enumerate}
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como usuario final que delega tareas en un agente de IA, \DIFaddbegin \\
-	\DIFaddend quiero que cada acción propuesta se evalúe antes de ejecutarse y se clasifique en permitir, revisar o bloquear, \DIFaddbegin \\
-	\DIFaddend para evitar que una acción riesgosa provoque un daño difícil de revertir.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como usuario final que delega tareas en un agente de IA, \\
+	quiero que cada acción propuesta se evalúe antes de ejecutarse y se clasifique en permitir, revisar o bloquear, \\
+	para evitar que una acción riesgosa provoque un daño difícil de revertir.
 
-	\textit{Story points}: 12 (complejidad: 5, dificultad: 4, incertidumbre: 3) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 12 (complejidad: 5, dificultad: 4, incertidumbre: 3) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como usuario final, \DIFaddbegin \\
-	\DIFaddend quiero que la decisión se tome usando únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos), \DIFdelbegin \DIFdel{para confiar en }\DIFdelend \DIFaddbegin \\
-	\DIFadd{para asegurar }\DIFaddend que el sistema \DIFdelbegin \DIFdel{no depende de datos que no existirían en un uso real.
-''
-}\DIFdelend \DIFaddbegin \DIFadd{utiliza únicamente información disponible en el momento de tomar la decisión.
-}\DIFaddend 
+	\item Como usuario final, \\
+	quiero que la decisión se tome usando únicamente información disponible antes de la acción (contexto de la sesión, herramienta, argumentos y permisos), \\
+	para asegurar que el sistema utiliza únicamente información disponible en el momento de tomar la decisión.
 
-	\textit{Story points}: 8 (complejidad: 2, dificultad: 3, incertidumbre: 3) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 8 (complejidad: 2, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como administrador de seguridad, \DIFaddbegin \\
-	\DIFaddend quiero definir reglas de permisos verificables e independientes del modelo de IA (por ejemplo, \DIFdelbegin \DIFdel{negar }\DIFdelend \DIFaddbegin \DIFadd{prohibir }\DIFaddend la lectura de archivos de credenciales), \DIFaddbegin \\
-	\DIFaddend para garantizar prohibiciones que el modelo no pueda anular.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como administrador de seguridad, \\
+	quiero definir reglas de permisos verificables e independientes del modelo de IA (por ejemplo, prohibir la lectura de archivos de credenciales), \\
+	para garantizar prohibiciones que el modelo no pueda anular.
 
-	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como investigadora, \DIFaddbegin \\
-	\DIFaddend quiero poder intercambiar el \DIFdelbegin \DIFdel{modelo de }\DIFdelend \DIFaddbegin \DIFadd{mecanismo de evaluación del }\DIFaddend riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema, \DIFaddbegin \\
-	\DIFaddend para comparar los distintos enfoques en igualdad de condiciones.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como investigadora, \\
+	quiero poder intercambiar el mecanismo de evaluación del riesgo (anomalías, clasificador o decisión preentrenada) sin modificar el resto del sistema, \\
+	para comparar los distintos enfoques en igualdad de condiciones.
 
-	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como administrador de seguridad, \DIFaddbegin \\
-	\DIFaddend quiero perfiles por usuario y por grupo de actividad que \DIFdelbegin \DIFdel{marquen los desvíos }\DIFdelend \DIFaddbegin \DIFadd{permitan identificar desviaciones }\DIFaddend respecto del patrón habitual, \DIFaddbegin \\
-	\DIFaddend para detectar comportamientos anómalos según el contexto de cada rol.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como administrador de seguridad, \\
+	quiero perfiles por usuario y por grupo de actividad que permitan identificar desviaciones respecto del patrón habitual, \\
+	para detectar comportamientos anómalos según el contexto de cada rol.
 
-	\textit{Story points}: 11 (complejidad: 3, dificultad: 4, incertidumbre: 4) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: media
-}\DIFaddend 
+	\textit{Story points}: 11 (complejidad: 3, dificultad: 4, incertidumbre: 4) \\
+	\textit{Prioridad}: media
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como usuario final con un equipo de recursos \DIFdelbegin \DIFdel{limitados, }\DIFdelend \DIFaddbegin \DIFadd{computacionales limitados, }\\
-	\DIFaddend quiero que el sistema elija automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM), \DIFaddbegin \\
-	\DIFaddend para usar la solución sin tener que configurarla manualmente.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como usuario final con un equipo de recursos computacionales limitados, \\
+	quiero que el sistema elija automáticamente la variante de modelo según los recursos del entorno (nube, GPU o CPU con poca memoria RAM), \\
+	para usar la solución sin tener que configurarla manualmente.
 
-	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: media
-}\DIFaddend 
+	\textit{Story points}: 8 (complejidad: 3, dificultad: 3, incertidumbre: 2) \\
+	\textit{Prioridad}: media
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como usuario final, \DIFdelbegin \DIFdel{quiero que }\DIFdelend \DIFaddbegin \\
-	\DIFadd{quiero que el sistema emita }\DIFaddend cada decisión \DIFdelbegin \DIFdel{se tome en a lo sumo }\DIFdelend \DIFaddbegin \DIFadd{en un tiempo promedio no superior a }\DIFaddend 500~ms \DIFdelbegin \DIFdel{en promedio en }\DIFdelend \DIFaddbegin \DIFadd{cuando se ejecute }\DIFaddend la variante liviana sobre CPU, \DIFaddbegin \\
-	\DIFaddend para no entorpecer el flujo de trabajo del agente.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como usuario final, \\
+	quiero que el sistema emita cada decisión en un tiempo promedio no superior a 500~ms cuando se ejecute la variante liviana sobre CPU, \\
+	para no entorpecer el flujo de trabajo del agente.
 
-	\textit{Story points}: 10 (complejidad: 2, dificultad: 4, incertidumbre: 4) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: media
-}\DIFaddend 
+	\textit{Story points}: 10 (complejidad: 2, dificultad: 4, incertidumbre: 4) \\
+	\textit{Prioridad}: media
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como usuario final, \DIFaddbegin \\
-	\DIFaddend quiero que la inferencia se ejecute de forma 100\,\% local sin enviar datos a internet, y que el uso de la nube sea opcional y explícitamente autorizado, \DIFaddbegin \\
-	\DIFaddend para preservar la privacidad de mi información.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como usuario final, \\
+	quiero que la inferencia se ejecute de forma 100\,\% local sin enviar datos a internet, y que el uso de la nube sea opcional y explícitamente autorizado, \\
+	para preservar la privacidad de mi información.
 
-	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: media
-}\DIFaddend 
+	\textit{Story points}: 6 (complejidad: 2, dificultad: 2, incertidumbre: 2) \\
+	\textit{Prioridad}: media
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como desarrollador integrador, \DIFdelbegin \DIFdel{quiero una interfaz simple }\DIFdelend \DIFaddbegin \\
-	\DIFadd{quiero una función }\DIFaddend que reciba el contexto \DIFaddbegin \DIFadd{de la sesión }\DIFaddend y la acción propuesta y devuelva la decisión, \DIFaddbegin \\
-	\DIFaddend para incorporar el \textit{gate} \DIFdelbegin \DIFdel{a distintas plataformas anfitrionas, incluido un }\textit{\DIFdel{sandbox}} %DIFAUXCMD
-\DIFdel{de agentes.
-''
-}\DIFdelend \DIFaddbegin \DIFadd{al entorno que ejecuta al agente sin acoplarlo a una implementación particular.
-}\DIFaddend 
+	\item Como desarrollador integrador, \\
+	quiero una función que reciba el contexto de la sesión y la acción propuesta y devuelva la decisión, \\
+	para incorporar el \textit{gate} al entorno que ejecuta al agente sin acoplarlo a una implementación particular.
 
-	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como investigadora, \DIFaddbegin \\
-	\DIFaddend quiero un banco de pruebas (\textit{benchmark}) reproducible que mida, por enfoque, la \DIFaddbegin \DIFadd{tasa de }\DIFaddend detección de ataque\DIFdelbegin \DIFdel{s}\DIFdelend  , las falsas alarmas, la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo, \DIFaddbegin \\
-	\DIFaddend para identificar el mejor equilibrio entre seguridad, usabilidad y costo.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como investigadora, \\
+	quiero un banco de pruebas (\textit{benchmark}) reproducible que mida, por enfoque, la tasa de detección de ataque, las falsas alarmas, la latencia, la memoria RAM, el tamaño del modelo y el uso de cómputo, \\
+	para identificar el mejor equilibrio entre seguridad, usabilidad y costo.
 
-	\textit{Story points}: 10 (complejidad: 4, dificultad: 3, incertidumbre: 3) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: media
-}\DIFaddend 
+	\textit{Story points}: 10 (complejidad: 4, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: media
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como investigadora, \DIFaddbegin \\
-	\DIFaddend quiero construir un conjunto de datos con ejemplos públicos y sintéticos y criterios claros de permitir, revisar o bloquear, \DIFaddbegin \\
-	\DIFaddend para entrenar y evaluar los detectores sobre tareas legítimas, intentos de desvío y situaciones ambiguas.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como investigadora, \\
+	quiero construir un conjunto de datos con ejemplos públicos y sintéticos y criterios claros de permitir, revisar o bloquear, \\
+	para entrenar y evaluar los detectores sobre tareas legítimas, intentos de desvío y situaciones ambiguas.
 
-	\textit{Story points}: 13 (complejidad: 4, dificultad: 4, incertidumbre: 5) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: alta
-}\DIFaddend 
+	\textit{Story points}: 13 (complejidad: 4, dificultad: 4, incertidumbre: 5) \\
+	\textit{Prioridad}: alta
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como investigadora, \DIFaddbegin \\
-	\DIFaddend quiero aplicar cuantización y comparar versiones del mismo modelo en distintas precisiones, \DIFaddbegin \\
-	\DIFaddend para hacerlo viable en equipos modestos sin perder demasiada capacidad de detección.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como investigadora, \\
+	quiero aplicar cuantización y comparar versiones del mismo modelo en distintas precisiones, \\
+	para hacerlo viable en equipos modestos sin perder demasiada capacidad de detección.
 
-	\textit{Story points}: 9 (complejidad: 3, dificultad: 3, incertidumbre: 3) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: baja
-}\DIFaddend 
+	\textit{Story points}: 9 (complejidad: 3, dificultad: 3, incertidumbre: 3) \\
+	\textit{Prioridad}: baja
 
-	\item \DIFdelbegin \DIFdel{``}\DIFdelend Como responsable del proyecto, \DIFaddbegin \\
-	\DIFaddend quiero pruebas automatizadas del \textit{gate}, \DIFaddbegin \\
-	\DIFaddend para asegurar que las reglas y las decisiones se mantienen correctas frente a los cambios del sistema.
-\DIFdelbegin \DIFdel{''
-}\DIFdelend 
+	\item Como responsable del proyecto, \\
+	quiero pruebas automatizadas del \textit{gate}, \\
+	para asegurar que las reglas y las decisiones se mantienen correctas frente a los cambios del sistema.
 
-	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \DIFaddbegin \\
-	\textit{\DIFadd{Prioridad}}\DIFadd{: baja
-}\DIFaddend \end{enumerate}
+	\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1) \\
+	\textit{Prioridad}: baja
+\end{enumerate}
 
 El total acumulado del \textit{product backlog} es de 111 \textit{story points}.
 
@@ -504,86 +442,79 @@ Los entregables principales del proyecto son:
 Las tareas se agrupan por afinidad y se relacionan con los requerimientos definidos en la sección~\ref{sec:requerimientos}. La estimación se expresa en horas (h).
 
 \begin{enumerate}
-\item Gestión y organización del proyecto (\DIFdelbegin \DIFdel{40 }\DIFdelend \DIFaddbegin \DIFadd{38 }\DIFaddend h)
+\item Gestión y organización del proyecto (38 h)
 	\begin{enumerate}
 	\item Planificación del proyecto y elaboración del plan de GdP (24 h)
-	\item Seguimiento del avance y reuniones de orientación con el director (\DIFdelbegin \DIFdel{16 }\DIFdelend \DIFaddbegin \DIFadd{14 }\DIFaddend h)
+	\item Seguimiento del avance y reuniones de orientación con el director (14 h)
 	\end{enumerate}
-\item Relevamiento y estado del arte (\DIFdelbegin \DIFdel{60 }\DIFdelend \DIFaddbegin \DIFadd{56 }\DIFaddend h)
+\item Relevamiento y estado del arte (56 h)
 	\begin{enumerate}
 	\item Revisión de la literatura sobre \textit{prompt injection} y seguridad en agentes (20 h)
 	\item Estudio de modelos de protección existentes (Llama Guard, ShieldGemma, Granite Guardian, entre otros) (20 h)
-	\item Estudio de mecanismos de control de herramientas y de detección de anomalías (\DIFdelbegin \DIFdel{20 }\DIFdelend \DIFaddbegin \DIFadd{16 }\DIFaddend h)
+	\item Estudio de mecanismos de control de herramientas y de detección de anomalías (16 h)
 	\end{enumerate}
-\item Conjunto de datos (\DIFdelbegin \DIFdel{90 }\DIFdelend \DIFaddbegin \DIFadd{84 }\DIFaddend h)
+\item Conjunto de datos (84 h)
 	\begin{enumerate}
 	\item Definición de criterios para distinguir acciones permitidas, a revisar y a bloquear (20 h)
 	\item Recopilación y curación de conjuntos de datos públicos (24 h)
-	\item Generación de ejemplos sintéticos (tareas legítimas, intentos de desvío y casos ambiguos) (\DIFdelbegin \DIFdel{30 }\DIFdelend \DIFaddbegin \DIFadd{24 }\DIFaddend h)
+	\item Generación de ejemplos sintéticos (tareas legítimas, intentos de desvío y casos ambiguos) (24 h)
 	\item Documentación del conjunto de datos y cálculo de \textit{checksums} (16 h)
 	\end{enumerate}
-\item Desarrollo de los detectores (\DIFdelbegin \DIFdel{130 }\DIFdelend \DIFaddbegin \DIFadd{122 }\DIFaddend h)
+\item Desarrollo de los detectores (122 h)
 	\begin{enumerate}
 	\item Implementación del detector por anomalías (30 h)
-	\item Implementación de los clasificadores entrenados (\DIFdelbegin \DIFdel{34 }\DIFdelend \DIFaddbegin \DIFadd{30 }\DIFaddend h)
+	\item Implementación de los clasificadores entrenados (30 h)
 	\item Integración de los modelos de decisión preentrenados (32 h)
-	\item Combinación de los detectores (\DIFdelbegin \DIFdel{34 }\DIFdelend \DIFaddbegin \DIFadd{30 }\DIFaddend h)
+	\item Combinación de los detectores (30 h)
 	\end{enumerate}
-\item Optimización y cuantización (\DIFdelbegin \DIFdel{50 }\DIFdelend \DIFaddbegin \DIFadd{46 }\DIFaddend h)
+\item Optimización y cuantización (46 h)
 	\begin{enumerate}
-	\item Cuantización de los modelos (\DIFdelbegin \DIFdel{26 }\DIFdelend \DIFaddbegin \DIFadd{22 }\DIFaddend h)
+	\item Cuantización de los modelos (22 h)
 	\item Comparación de versiones en distintas precisiones y su costo (24 h)
 	\end{enumerate}
-\item Intermediario (\textit{gate}) e integración (\DIFdelbegin \DIFdel{70 }\DIFdelend \DIFaddbegin \DIFadd{66 }\DIFaddend h)
+\item Intermediario (\textit{gate}) e integración (66 h)
 	\begin{enumerate}
 	\item Diseño e implementación del motor de reglas de permisos verificables (24 h)
-	\item Implementación del \textit{gate} y de su interfaz (contexto y acción a decisión) (\DIFdelbegin \DIFdel{26 }\DIFdelend \DIFaddbegin \DIFadd{22 }\DIFaddend h)
+	\item Implementación del \textit{gate} y de su interfaz (contexto y acción a decisión) (22 h)
 	\item Matriz de decisión y selección automática de la variante según los recursos (20 h)
 	\end{enumerate}
-\item Evaluación y banco de pruebas (\DIFdelbegin \DIFdel{70 }\DIFdelend \DIFaddbegin \DIFadd{66 }\DIFaddend h)
+\item Evaluación y banco de pruebas (66 h)
 	\begin{enumerate}
 	\item Diseño del \textit{benchmark} y de las métricas (20 h)
-	\item Ejecución de los experimentos (\DIFdelbegin \DIFdel{30 }\DIFdelend \DIFaddbegin \DIFadd{26 }\DIFaddend h)
+	\item Ejecución de los experimentos (26 h)
 	\item Análisis de los resultados (20 h)
 	\end{enumerate}
-\item Pruebas automatizadas (\DIFdelbegin \DIFdel{20 }\DIFdelend \DIFaddbegin \DIFadd{18 }\DIFaddend h)
+\item Pruebas automatizadas (18 h)
 	\begin{enumerate}
-	\item Desarrollo de las pruebas automatizadas del \textit{gate} (\DIFdelbegin \DIFdel{20 }\DIFdelend \DIFaddbegin \DIFadd{18 }\DIFaddend h)
+	\item Desarrollo de las pruebas automatizadas del \textit{gate} (18 h)
 	\end{enumerate}
-\item Memoria del Trabajo Final (\DIFdelbegin \DIFdel{50 }\DIFdelend \DIFaddbegin \DIFadd{46 }\DIFaddend h)
+\item Memoria del Trabajo Final (46 h)
 	\begin{enumerate}
-	\item Redacción de la memoria (\DIFdelbegin \DIFdel{30 }\DIFdelend \DIFaddbegin \DIFadd{26 }\DIFaddend h)
+	\item Redacción de la memoria (26 h)
 	\item Revisión e incorporación de correcciones (20 h)
 	\end{enumerate}
-\item Presentación y cierre (\DIFdelbegin \DIFdel{20 }\DIFdelend \DIFaddbegin \DIFadd{18 }\DIFaddend h)
+\item Presentación y cierre (18 h)
 	\begin{enumerate}
-	\item Elaboración de la presentación (\DIFdelbegin \DIFdel{12 }\DIFdelend \DIFaddbegin \DIFadd{10 }\DIFaddend h)
+	\item Elaboración de la presentación (10 h)
 	\item Ensayo de la presentación y cierre del proyecto (8 h)
 	\end{enumerate}
-\DIFaddbegin \item \DIFadd{Buffer para imprevistos (40 h)
-	}\begin{enumerate}
-	\item \DIFadd{Tiempo reservado para retrasos, cambios de alcance y problemas técnicos (40 h)
-	}\DIFaddend \end{enumerate}
-\DIFaddbegin \end{enumerate}
-\DIFaddend 
+\item Buffer para imprevistos (40 h)
+	\begin{enumerate}
+	\item Tiempo reservado para retrasos, cambios de alcance y problemas técnicos (40 h)
+	\end{enumerate}
+\end{enumerate}
 
 Cantidad total de horas: 600 h.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\DIFdelbegin %DIFDELCMD < \begin{consigna}{red}
-%DIFDELCMD < %%%
-\DIFdel{Armar el AoN }\DIFdelend \DIFaddbegin \DIFadd{El diagrama de }\textit{\DIFadd{Activity on Node}} \DIFadd{(figura~\ref{fig:AoN}) se construye }\DIFaddend a partir del \DIFdelbegin \DIFdel{WBS definido en la etapa anterior.
-}\DIFdelend \DIFaddbegin \DIFadd{desglose de tareas de la sección~\ref{sec:wbs} y representa las dependencias entre las tareas del proyecto. Cada nodo corresponde a una tarea, identificada con su código del WBS, su nombre y su duración estimada; los tiempos están expresados en horas (h). El flujo avanza desde el hito de inicio (octubre de 2026) hasta el hito de fin (noviembre de 2027).
+\DIFdelbegin \DIFdel{El diagrama de }\textit{\DIFdel{Activity on Node}} %DIFAUXCMD
+\DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{En la }\DIFaddend figura~\ref{fig:AoN} \DIFdelbegin \DIFdel{) se construye }\DIFdelend \DIFaddbegin \DIFadd{se presenta el diagrama de }\textit{\DIFadd{Activity on Node}}\DIFadd{, elaborado }\DIFaddend a partir del desglose de tareas de la sección~\ref{sec:wbs}\DIFdelbegin \DIFdel{y }\DIFdelend \DIFaddbegin \DIFadd{. El diagrama }\DIFaddend representa las dependencias entre las tareas del proyecto. Cada nodo corresponde a una tarea \DIFdelbegin \DIFdel{, identificada con }\DIFdelend \DIFaddbegin \DIFadd{e incluye }\DIFaddend su código del WBS, su nombre y su duración estimada\DIFdelbegin \DIFdel{; los tiempos están expresados }\DIFdelend \DIFaddbegin \DIFadd{, expresada }\DIFaddend en horas (h). El flujo \DIFdelbegin \DIFdel{avanza desde }\DIFdelend \DIFaddbegin \DIFadd{comienza en }\DIFaddend el hito de inicio\DIFdelbegin \DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{, correspondiente a }\DIFaddend octubre de 2026\DIFdelbegin \DIFdel{) hasta }\DIFdelend \DIFaddbegin \DIFadd{, y finaliza en }\DIFaddend el hito de fin\DIFdelbegin \DIFdel{(noviembre de 2027).
+}\DIFdelend \DIFaddbegin \DIFadd{, previsto para noviembre de 2027.
 }\DIFaddend 
 
-\DIFdelbegin \DIFdel{Una herramienta simple para desarrollar los diagramas es el Draw.io (}%DIFDELCMD < \url{https://app.diagrams.net/}%%%
-\DIFdel{).
-}\href{https://app.diagrams.net}{\DIFdel{Draw.io}}
-%DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{Los colores distinguen el rol de cada tarea en la red, según las referencias incluidas en el diagrama: en rojo las tareas del camino crítico, cuya demora afecta directamente la fecha de finalización del proyecto; en naranja las del camino semicrítico, con holgura reducida; en azul las tareas fuera del camino crítico, que cuentan con holgura; y en verde los hitos de inicio y fin.
-}\DIFaddend 
+Los colores distinguen el rol de cada tarea en la red, según las referencias incluidas en el diagrama: en rojo las tareas del camino crítico, cuya demora afecta directamente la fecha de finalización del proyecto; en naranja las del camino semicrítico, con holgura reducida; en azul las tareas fuera del camino crítico, que cuentan con holgura; y en verde los hitos de inicio y fin.
 
 \begin{figure}[htpb]
 \centering
@@ -592,169 +523,60 @@ Cantidad total de horas: 600 h.
 \label{fig:AoN}
 \end{figure}
 
-\DIFdelbegin \DIFdel{Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
-}%DIFDELCMD < 
-
-%DIFDELCMD < \end{consigna}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \section{11. Diagrama de Gantt}
+\section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\DIFdelbegin %DIFDELCMD < \begin{consigna}{red}
+\DIFdelbegin \DIFdel{Para la planificación temporal del proyecto se elaboró }\DIFdelend \DIFaddbegin \DIFadd{En la figura~\ref{fig:diagGantt} se puede observar }\DIFaddend el diagrama de Gantt \DIFdelbegin \DIFdel{de la figura~\ref{fig:diagGantt}}\DIFdelend \DIFaddbegin \DIFadd{elaborado para la planificación temporal del proyecto}\DIFaddend , construido a partir del desglose de tareas de la sección~\ref{sec:wbs}. Cada barra representa una tarea identificada con su código del WBS, su nombre y su duración estimada en horas; su posición y su longitud indican las fechas de inicio y de fin previstas.
+
+El cronograma abarca desde el inicio del Trabajo Final, en octubre de 2026, hasta la presentación pública prevista para noviembre de 2027. Las tareas se ordenan respetando las dependencias reflejadas en el diagrama de \textit{Activity on Node} de la sección~\ref{sec:AoN}; algunas se ejecutan en paralelo cuando las precedencias y los recursos lo permiten.
+
+\DIFdelbegin %DIFDELCMD < \begin{landscape}
 %DIFDELCMD < %%%
-\DIFdel{Existen muchos programas y recursos }\textit{\DIFdel{online}} %DIFAUXCMD
-\DIFdel{para hacer diagramas de Gantt, entre los cuales destacamos:
-}%DIFDELCMD < 
-
-%DIFDELCMD < \begin{itemize}
-\begin{itemize}%DIFAUXCMD
-%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Planner
-}%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{GanttProject
-}%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Trello + }\textit{\DIFdel{plugins}}%DIFAUXCMD
-\DIFdel{. En el siguiente link hay un tutorial oficial: }%DIFDELCMD < \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Creately, herramienta online colaborativa. }%DIFDELCMD < \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-%DIFDELCMD < \item %%%
-\item%DIFAUXCMD
-\DIFdel{Se puede hacer en latex con el paquete }\textit{\DIFdel{pgfgantt}}%DIFAUXCMD
-%DIFDELCMD < \\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-
-\end{itemize}%DIFAUXCMD
-%DIFDELCMD < \end{itemize}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).
-}%DIFDELCMD < \\
-%DIFDELCMD < %%%
-\DIFdel{Configurar el software para que al lado de cada barra muestre el nombre de cada tarea .}%DIFDELCMD < \\
-%DIFDELCMD < %%%
-\DIFdel{Revisar que la fecha }\DIFdelend \DIFaddbegin \DIFadd{Para la planificación temporal del proyecto se elaboró el diagrama de Gantt de la figura~\ref{fig:diagGantt}, construido a partir del desglose de tareas de la sección~\ref{sec:wbs}. Cada barra representa una tarea identificada con su código del WBS, su nombre y su duración estimada en horas; su posición y su longitud indican las fechas }\DIFaddend de \DIFdelbegin \DIFdel{finalización coincida con lo indicado en el Acta Constitutiva.
-}\DIFdelend \DIFaddbegin \DIFadd{inicio y de fin previstas.
-}\DIFaddend 
-
-\DIFdelbegin \DIFdel{En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de }\textit{\DIFdel{pgfgantt}}%DIFAUXCMD
-\DIFdel{. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio. }%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas.
-Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-}\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{\DIFdel{esta hoja de cálculo}}%DIFAUXCMD
-\DIFdel{.
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Es importante destacar que el ancho del }\DIFdelend \DIFaddbegin \DIFadd{El cronograma abarca desde el inicio del Trabajo Final, en octubre de 2026, hasta la presentación pública prevista para noviembre de 2027. Las tareas se ordenan respetando las dependencias reflejadas en el }\DIFaddend diagrama \DIFdelbegin \DIFdel{estará dado por la longitud del texto utilizado para las tareas (Ejemplo: tarea 1, tarea 2, etcétera) y el valor }\textit{\DIFdel{x unit}}%DIFAUXCMD
-\DIFdel{. Para mejorar la apariencia del diagrama , es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas}\DIFdelend \DIFaddbegin \DIFadd{de }\textit{\DIFadd{Activity on Node}} \DIFadd{de la sección~\ref{sec:AoN}; algunas se ejecutan en paralelo cuando las precedencias y los recursos lo permiten}\DIFaddend .
-
-\DIFdelbegin %DIFDELCMD < \begin{figure}[htpb]
-%DIFDELCMD <   \begin{center}
-%DIFDELCMD <     \begin{ganttchart}[
-%DIFDELCMD <       time slot unit=day,
-%DIFDELCMD <       time slot format=isodate,
-%DIFDELCMD <       x unit=0.038cm,
-%DIFDELCMD <       y unit title=0.7cm,
-%DIFDELCMD <       y unit chart=0.6cm,
-%DIFDELCMD <       milestone/.append style={xscale=4}
-%DIFDELCMD <       ]{2021-03-05}{2021-12-16}
-%DIFDELCMD <       \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-%DIFDELCMD <       \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-%DIFDELCMD <       \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-%DIFDELCMD <       %%%
-%DIF < %%%%%%%%%%%%%%%%Organización
-      %DIFDELCMD < \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-%DIFDELCMD <       \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-%DIFDELCMD <       %%%
-%DIF < %%%%%%%%%%%%%%%%Ejecución
-      %DIFDELCMD < \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-%DIFDELCMD <       \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-%DIFDELCMD <       \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-%DIFDELCMD <       \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-%DIFDELCMD <       \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-%DIFDELCMD <       \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-%DIFDELCMD <       \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-%DIFDELCMD <       \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-%DIFDELCMD <       \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-%DIFDELCMD <       \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-%DIFDELCMD <       %%%
-%DIF <  %%%%%%%%%%%%%%%%%Finalización
-      %DIFDELCMD < \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-%DIFDELCMD <       \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-%DIFDELCMD <       \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-%DIFDELCMD <       \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-%DIFDELCMD <       %%%
-%DIF <  La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      %DIFDELCMD < \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-%DIFDELCMD <       \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-%DIFDELCMD <       \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-%DIFDELCMD <       %%%
-%DIF < %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %DIFDELCMD < \end{ganttchart}
-%DIFDELCMD <   \end{center}
-%DIFDELCMD <   %%%
-%DIFDELCMD < \caption{%
-{%DIFAUXCMD
-\DIFdelFL{Diagrama de gantt de ejemplo}}
-  %DIFAUXCMD
-%DIFDELCMD < \label{fig:gantt}
-%DIFDELCMD < \end{figure}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \begin{landscape}
-\begin{figure}[htpb]
+\DIFdelend \begin{figure}[htpb]
 \centering
-\DIFdelbeginFL %DIFDELCMD < \includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[height=\textheight]{./Figuras/Gantt-2.png}
 %DIFDELCMD < %%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[height=\textheight]{./Figuras/Gantt-2.png}
-\DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{Ejemplo }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Diagrama }\DIFaddendFL de \DIFdelbeginFL \DIFdelFL{diagrama de }\DIFdelendFL Gantt \DIFdelbeginFL \DIFdelFL{(apaisado)}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{del proyecto}\DIFaddendFL .}
-%DIF < Modificar este título acorde.
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=\textwidth]{./Figuras/Gantt-2.png}
+\DIFaddendFL \caption{Diagrama de Gantt del proyecto.}
 \label{fig:diagGantt}
 \end{figure}
 
-\end{landscape}
 
-
-\DIFdelbegin %DIFDELCMD < \end{consigna}
+\DIFdelbegin %DIFDELCMD < \end{landscape}
 %DIFDELCMD < 
 
 %DIFDELCMD < %%%
 \DIFdelend \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-El presupuesto se expresa en dólares estadounidenses (USD). Dado el período de ejecución (desde octubre de 2026 hasta la defensa prevista en noviembre de 2027), se adopta el USD como moneda de referencia para evitar la distorsión que la inflación introduciría sobre valores expresados en pesos argentinos (ARS).
+El presupuesto se expresa en dólares estadounidenses (USD) \DIFdelbegin \DIFdel{. Dado el período de ejecución (desde octubre de 2026 hasta la defensa prevista en noviembre de 2027), se adopta el USD como moneda de referencia }\DIFdelend para evitar la distorsión que la inflación introduciría sobre valores expresados en pesos argentinos (ARS).
 
 Al tratarse de un Trabajo Final académico e individual, el mayor componente del costo corresponde a la mano de obra de la responsable. Aunque no implica un desembolso monetario efectivo, se valoriza como costo de oportunidad a un valor hora de mercado de referencia para un perfil semi-senior de IA y datos en Argentina (USD~15/h), por lo que las 600~h estimadas constituyen el principal costo directo.
 
 Los conjuntos de datos públicos, los modelos abiertos y el software utilizado son de uso gratuito, por lo que su costo directo es nulo; se incluyen de todos modos en la tabla para dejar constancia. El cómputo con GPU se cubre mediante una suscripción a Google Colab Pro durante los meses de experimentación. Entre los costos indirectos se consideran la amortización del equipo de cómputo personal, la energía eléctrica y la conexión a internet, imputados de forma proporcional al uso del proyecto.
 
-Los supuestos de cálculo son:
-\begin{itemize}
-	\item Valor hora de la responsable: USD~15/h (costo de oportunidad, ajustable).
-	\item Google Colab Pro: USD~12 por mes durante 5 meses de experimentación (desarrollo de los detectores, optimización y evaluación).
-	\item Amortización del equipo: notebook de USD~1.200, vida útil de 48 meses, con 13 meses de uso imputados al proyecto.
-	\item Energía eléctrica e internet: imputación proporcional al uso durante el período de ejecución.
-\end{itemize}
+\DIFdelbegin \DIFdel{Los supuestos de cálculo son:
+}%DIFDELCMD < \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+%DIFDELCMD < 	\item %%%
+\item%DIFAUXCMD
+\DIFdel{Valor hora de la responsable: USD~15/h (costo de oportunidad, ajustable).
+	}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Google Colab Pro: USD~12 por mes durante 5 meses de experimentación (desarrollo de los detectores, optimización y evaluación).
+	}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Amortización del equipo: notebook de USD~1.200, vida útil de 48 meses, con 13 meses de uso imputados al proyecto.
+	}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Energía eléctrica e internet: imputación proporcional al uso durante el período de ejecución.
+}
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < 
 
-El detalle se presenta en la tabla~\ref{tab:presupuesto}.
+%DIFDELCMD < %%%
+\DIFdelend El detalle se presenta en la tabla~\ref{tab:presupuesto}.
 
 \begin{table}[htpb]
 \centering
@@ -769,18 +591,18 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unit.\ (USD)} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
-Mano de obra: gestión y organización del proyecto & \DIFdelbeginFL \DIFdelFL{40 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{38 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{600 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{570 }\DIFaddendFL \\ \hline
-Mano de obra: relevamiento y estado del arte & \DIFdelbeginFL \DIFdelFL{60 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{56 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{900 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{840 }\DIFaddendFL \\ \hline
-Mano de obra: conjunto de datos & \DIFdelbeginFL \DIFdelFL{90 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{84 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{1.350 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.260 }\DIFaddendFL \\ \hline
-Mano de obra: desarrollo de los detectores & \DIFdelbeginFL \DIFdelFL{130 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{122 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{1.950 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{1.830 }\DIFaddendFL \\ \hline
-Mano de obra: optimización y cuantización & \DIFdelbeginFL \DIFdelFL{50 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{46 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{750 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{690 }\DIFaddendFL \\ \hline
-Mano de obra: intermediario (\textit{gate}) e integración & \DIFdelbeginFL \DIFdelFL{70 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{66 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{1.050 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{990 }\DIFaddendFL \\ \hline
-Mano de obra: evaluación y banco de pruebas & \DIFdelbeginFL \DIFdelFL{70 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{66 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{1.050 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{990 }\DIFaddendFL \\ \hline
-Mano de obra: pruebas automatizadas & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{18 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{300 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{270 }\DIFaddendFL \\ \hline
-Mano de obra: memoria del Trabajo Final & \DIFdelbeginFL \DIFdelFL{50 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{46 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{750 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{690 }\DIFaddendFL \\ \hline
-Mano de obra: presentación y cierre & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{18 }\DIFaddendFL h & 15 & \DIFdelbeginFL \DIFdelFL{300 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{270 }\DIFaddendFL \\ \hline
-\DIFaddbeginFL \DIFaddFL{Mano de obra: buffer para imprevistos }& \DIFaddFL{40 h }& \DIFaddFL{15 }& \DIFaddFL{600 }\\ \hline
-\DIFaddendFL Suscripción a Google Colab Pro & 5 meses & 12 & 60 \\ \hline
+Mano de obra: gestión y organización del proyecto & 38 h & 15 & 570 \\ \hline
+Mano de obra: relevamiento y estado del arte & 56 h & 15 & 840 \\ \hline
+Mano de obra: conjunto de datos & 84 h & 15 & 1.260 \\ \hline
+Mano de obra: desarrollo de los detectores & 122 h & 15 & 1.830 \\ \hline
+Mano de obra: optimización y cuantización & 46 h & 15 & 690 \\ \hline
+Mano de obra: intermediario (\textit{gate}) e integración & 66 h & 15 & 990 \\ \hline
+Mano de obra: evaluación y banco de pruebas & 66 h & 15 & 990 \\ \hline
+Mano de obra: pruebas automatizadas & 18 h & 15 & 270 \\ \hline
+Mano de obra: memoria del Trabajo Final & 46 h & 15 & 690 \\ \hline
+Mano de obra: presentación y cierre & 18 h & 15 & 270 \\ \hline
+Mano de obra: buffer para imprevistos & 40 h & 15 & 600 \\ \hline
+Suscripción a Google Colab Pro & 5 meses & 12 & 60 \\ \hline
 Conjuntos de datos públicos & --- & 0 & 0 \\ \hline
 Modelos abiertos y software de código abierto & --- & 0 & 0 \\ \hline
 \multicolumn{3}{|r|}{SUBTOTAL COSTOS DIRECTOS} &
@@ -807,67 +629,41 @@ Conexión a internet (proporcional) & 13 meses & --- & 60 \\ \hline
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\DIFdelbegin %DIFDELCMD < \begin{consigna}{red}
-%DIFDELCMD < %%%
-\DIFdel{a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- }\DIFdelend \DIFaddbegin \DIFadd{A continuación se identifican los principales riesgos del proyecto. Para cada uno se estima la severidad (S) y la probabilidad de ocurrencia (O) en una escala de 1 a 10, y se calcula el número de prioridad de riesgo como RPN${}={}$S${}\times{}$O. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar las medidas de mitigación.
-}\DIFaddend 
+A continuación se identifican los principales riesgos del proyecto. Para cada uno se estima la severidad (S) y la probabilidad de ocurrencia (O) en una escala de 1 a 10, y se calcula el número de prioridad de riesgo como RPN${}={}$S${}\times{}$O. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar las medidas de mitigación.
 
-Riesgo 1\DIFdelbegin \DIFdel{: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa) }\DIFdelend \DIFaddbegin \DIFadd{: no disponer de conjuntos de datos adecuados para caracterizar acciones maliciosas de agentes.
-}\DIFaddend \begin{itemize}
-	\item Severidad (S): \DIFdelbegin \DIFdel{mientras más severo, más alto es el número (usar números del 1 al 10).
-	}%DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificar el motivo por el cual se asigna determinado número de severidad (S) }\DIFdelend \DIFaddbegin \DIFadd{9. Sin datos representativos no es posible entrenar ni evaluar los detectores, lo que compromete el núcleo del Trabajo Final.
-	}\item \DIFadd{Ocurrencia (O): 6. Es un área reciente; existen conjuntos de }\textit{\DIFadd{prompt injection}}\DIFadd{, pero no necesariamente con el etiquetado de permitir, revisar o bloquear que requiere el proyecto.
-}\end{itemize}
+Riesgo 1: no disponer de conjuntos de datos adecuados para \DIFaddbegin \DIFadd{identificar y }\DIFaddend caracterizar acciones maliciosas de \DIFaddbegin \DIFadd{los }\DIFaddend agentes.
+\begin{itemize}
+	\item Severidad (S): 9. Sin datos representativos no es posible entrenar ni evaluar los detectores, lo que compromete el núcleo del Trabajo Final.
+	\item Ocurrencia (O): 6. \DIFdelbegin \DIFdel{Es }\DIFdelend \DIFaddbegin \DIFadd{Se trata de }\DIFaddend un área \DIFdelbegin \DIFdel{reciente; existen conjuntos de }\DIFdelend \DIFaddbegin \DIFadd{de investigación reciente. Existen conjuntos de datos sobre }\DIFaddend \textit{prompt injection}, pero no necesariamente \DIFdelbegin \DIFdel{con el etiquetado de }\DIFdelend \DIFaddbegin \DIFadd{incluyen las etiquetas }\DIFaddend permitir, revisar o bloquear que requiere el proyecto.
+\end{itemize}
 
-\DIFadd{Riesgo 2: que la variante liviana no alcance las metas de desempeño (latencia y memoria) por el tamaño o el costo de los modelos.
-}\begin{itemize}
-	\item \DIFadd{Severidad (S): 6. Afecta un requerimiento de desempeño, aunque el trabajo sigue siendo válido para comparar enfoques entre sí}\DIFaddend .
-	\item \DIFdelbegin \DIFdel{Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10)}\DIFdelend \DIFaddbegin \DIFadd{Ocurrencia (O): 6. Los modelos de decisión pueden exceder los límites de RAM o de latencia en CPU sin optimización previa.
-}\end{itemize}
+Riesgo 2: que la variante liviana no alcance las metas de desempeño (latencia y memoria) por el tamaño o el costo de los modelos.
+\begin{itemize}
+	\item Severidad (S): 6. Afecta un requerimiento de desempeño, aunque el trabajo \DIFdelbegin \DIFdel{sigue siendo válido }\DIFdelend \DIFaddbegin \DIFadd{mantiene su validez }\DIFaddend para comparar enfoques entre sí.
+	\item Ocurrencia (O): 6. Los modelos de decisión pueden exceder los límites de RAM o de latencia en CPU sin optimización previa.
+\end{itemize}
 
-\DIFadd{Riesgo 3: retrasos en el cronograma por la disponibilidad }\textit{\DIFadd{part-time}} \DIFadd{de la responsable.
-}\begin{itemize}
-	\item \DIFadd{Severidad (S): 5. Un desvío moderado puede comprimir las etapas finales, pero no impide completar el trabajo.
-	}\item \DIFadd{Ocurrencia (O): 8. La modalidad }\textit{\DIFadd{part-time}} \DIFadd{y la extensión del proyecto hacen que los desvíos sean probables}\DIFaddend .
-\DIFdelbegin %DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificar el motivo por el cual se asigna determinado número de (O). 
-}\DIFdelend \end{itemize}
+Riesgo 3: retrasos en el cronograma por la disponibilidad \textit{part-time} de la responsable.
+\begin{itemize}
+	\item Severidad (S): 5. Un desvío moderado puede \DIFdelbegin \DIFdel{comprimir }\DIFdelend \DIFaddbegin \DIFadd{reducir }\DIFaddend las etapas finales, pero no impide completar el trabajo.
+	\item Ocurrencia (O): 8. La \DIFdelbegin \DIFdel{modalidad }\textit{\DIFdel{part-time}} %DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{dedicación parcial }\DIFaddend y la extensión del proyecto hacen que los desvíos sean probables.
+\end{itemize}
 
-Riesgo \DIFdelbegin \DIFdel{2: }\DIFdelend \DIFaddbegin \DIFadd{4: pérdida o cambios en los límites de los servicios de cómputo gratuitos (por ejemplo, Google Colab).
-}\DIFaddend \begin{itemize}
-	\item Severidad (S): \DIFdelbegin \DIFdel{X.
-	}%DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificación...
-	}\DIFdelend \DIFaddbegin \DIFadd{5. Obliga a reorganizar los experimentos que requieren GPU, con impacto acotado.
-	}\DIFaddend \item Ocurrencia (O): \DIFdelbegin \DIFdel{Y.
-}%DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificación...
-}\DIFdelend \DIFaddbegin \DIFadd{5. Los límites de estos servicios cambian con cierta frecuencia.
-}\DIFaddend \end{itemize}
+Riesgo 4: pérdida o cambios en los límites de los servicios de cómputo gratuitos (por ejemplo, Google Colab).
+\begin{itemize}
+	\item Severidad (S): 5. Obliga a reorganizar los experimentos que requieren GPU, con impacto acotado.
+	\item Ocurrencia (O): 5. Los límites de estos servicios cambian con cierta frecuencia.
+\end{itemize}
 
-Riesgo \DIFdelbegin \DIFdel{3: }\DIFdelend \DIFaddbegin \DIFadd{5: restricciones de licencias de modelos o conjuntos de datos de terceros que impidan su uso académico.
-}\DIFaddend \begin{itemize}
-	\item Severidad (S): \DIFdelbegin \DIFdel{X.
-	}%DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificación...
-	}\DIFdelend \DIFaddbegin \DIFadd{6. Puede obligar a reemplazar un modelo o un conjunto de datos y rehacer parte del trabajo.
-	}\DIFaddend \item Ocurrencia (O): \DIFdelbegin \DIFdel{Y.
-}%DIFDELCMD < \\
-%DIFDELCMD < 	%%%
-\DIFdel{Justificación...
-}\DIFdelend \DIFaddbegin \DIFadd{4. La mayoría de los modelos y datos previstos son abiertos y de uso académico permitido.
-}\DIFaddend \end{itemize}
+Riesgo 5: restricciones de licencias de modelos o conjuntos de datos de terceros que impidan su uso académico.
+\begin{itemize}
+	\item Severidad (S): 6. Puede obligar a reemplazar un modelo o un conjunto de datos y rehacer parte del trabajo.
+	\item Ocurrencia (O): 4. La mayoría de los modelos y datos previstos son abiertos y de uso académico permitido.
+\end{itemize}
 
-\DIFdelbegin \DIFdel{b) }\DIFdelend \DIFaddbegin \vspace{0.3cm}
-\DIFaddend Tabla de gestión de riesgos \DIFdelbegin \DIFdel{:      (El }\DIFdelend \DIFaddbegin \DIFadd{(el }\DIFaddend RPN se calcula como RPN\DIFdelbegin \DIFdel{=SxO)}\DIFdelend \DIFaddbegin \DIFadd{${}={}$S${}\times{}$O):
-}\DIFaddend 
+\vspace{0.3cm}
+Tabla de gestión de riesgos (el RPN se calcula como RPN${}={}$S${}\times{}$O):
 
 \begin{table}[htpb]
 \centering
@@ -875,156 +671,102 @@ Riesgo \DIFdelbegin \DIFdel{3: }\DIFdelend \DIFaddbegin \DIFadd{5: restricciones
 \hline
 \rowcolor[HTML]{C0C0C0}
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-\DIFaddbeginFL \DIFaddFL{1. Datos inadecuados o insuficientes }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{9 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{54 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{9 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{3 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{27 }\DIFaddendFL \\ \hline
-\DIFaddbeginFL \DIFaddFL{2. Metas de desempeño no alcanzadas }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{36 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{3 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{18 }\DIFaddendFL \\ \hline
-\DIFaddbeginFL \DIFaddFL{3. Retrasos por disponibilidad }\textit{\DIFaddFL{part-time}} \DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{8 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{40 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{25 }\DIFaddendFL \\ \hline
-\DIFaddbeginFL \DIFaddFL{4. Límites de cómputo gratuito }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{25 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{5 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{25 }\DIFaddendFL \\ \hline
-\DIFaddbeginFL \DIFaddFL{5. Restricciones de licencias }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{4 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{24 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{6 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{4 }\DIFaddendFL & \DIFaddbeginFL \DIFaddFL{24 }\DIFaddendFL \\ \hline
+1. Datos inadecuados o insuficientes & 9 & 6 & 54 & 9 & 3 & 27 \\ \hline
+2. Metas de desempeño no alcanzadas & 6 & 6 & 36 & 6 & 3 & 18 \\ \hline
+3. Retrasos por disponibilidad \textit{part-time} & 5 & 8 & 40 & 5 & 5 & 25 \\ \hline
+4. Límites de cómputo gratuito & 5 & 5 & 25 & 5 & 5 & 25 \\ \hline
+5. Restricciones de licencias & 6 & 4 & 24 & 6 & 4 & 24 \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: \DIFdelbegin %DIFDELCMD < 
+Criterio adoptado: se elabora un plan de mitigación para los riesgos cuyo RPN sea mayor a 35. En consecuencia, se mitigan los riesgos 1, 2 y 3. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar la mitigación.
 
-%DIFDELCMD < %%%
-\DIFdel{Se tomarán medidas }\DIFdelend \DIFaddbegin \DIFadd{se elabora un plan }\DIFaddend de mitigación \DIFdelbegin \DIFdel{en los riesgos cuyos números de RPN sean mayores a ...
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Nota: los }\DIFdelend \DIFaddbegin \DIFadd{para los riesgos cuyo RPN sea mayor a 35. En consecuencia, se mitigan los riesgos 1, 2 y 3. Los }\DIFaddend valores marcados con \DIFdelbegin \DIFdel{(*) en la tabla corresponden luego de haber aplicado }\DIFdelend \DIFaddbegin \DIFadd{asterisco ($^{*}$) corresponden a la situación luego de aplicar }\DIFaddend la mitigación.
-
-\DIFdelbegin \DIFdel{c) }\DIFdelend Plan de mitigación\DIFdelbegin \DIFdel{de los riesgos que originalmente excedían el RPN máximo establecido:
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdel{Riesgo 1}\DIFdelend :
-\DIFdelbegin \DIFdel{plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  }\DIFdelend \begin{itemize}
-	\item \DIFdelbegin \DIFdel{Severidad }\DIFdelend \DIFaddbegin \DIFadd{Riesgo 1: construir un conjunto de datos sintético propio con criterios claros de etiquetado (previsto en el alcance), complementado con datos públicos parcialmente aplicables, y documentar su origen y sus }\textit{\DIFadd{checksums}}\DIFadd{. Con esto la ocurrencia baja de 6 a 3 }\DIFaddend (S*\DIFaddbegin \DIFadd{${}={}$9, O*${}={}$3, RPN*${}={}$27).
-	}\item \DIFadd{Riesgo 2: aplicar cuantización y comparar versiones en distintas precisiones, y acotar las metas de latencia y memoria a la variante liviana sobre CPU. Con esto la ocurrencia baja de 6 a 3 (S*${}={}$6, O*${}={}$3, RPN*${}={}$18}\DIFaddend )\DIFdelbegin \DIFdel{: mientras más severo, más alto es el número (usar números del 1 al 10). Justificar el motivo por el cual se asigna determinado número de severidad (S)}\DIFdelend .
-	\item \DIFdelbegin \DIFdel{Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O}\DIFdelend \DIFaddbegin \DIFadd{Riesgo 3: reservar un }\textit{\DIFadd{buffer}} \DIFadd{de 40~h para imprevistos (sección~\ref{sec:wbs}), planificar con holgura y sostener el seguimiento periódico con el director. Con esto la ocurrencia baja de 8 a 5 (S*${}={}$5, O*${}={}$5, RPN*${}={}$25}\DIFaddend ).
+Plan de mitigación:
+\begin{itemize}
+	\item Riesgo 1: construir un conjunto de datos sintético propio con criterios claros de etiquetado (previsto en el alcance), complementado con datos públicos parcialmente aplicables, y documentar su origen y sus \textit{checksums}. Con esto la ocurrencia baja de 6 a 3 (S*${}={}$9, O*${}={}$3, RPN*${}={}$27).
+	\item Riesgo 2: aplicar cuantización y comparar versiones en distintas precisiones, y acotar las metas de latencia y memoria a la variante liviana sobre CPU. Con esto la ocurrencia baja de 6 a 3 (S*${}={}$6, O*${}={}$3, RPN*${}={}$18).
+	\item Riesgo 3: reservar un \textit{buffer} de 40~h para imprevistos (sección~\ref{sec:wbs}), planificar con holgura y sostener el seguimiento periódico con el director. Con esto la ocurrencia baja de 8 a 5 (S*${}={}$5, O*${}={}$5, RPN*${}={}$25).
 \end{itemize}
 
-\DIFdelbegin \DIFdel{Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar }\DIFdelend \DIFaddbegin \DIFadd{Los riesgos 4 y 5 quedan por debajo del umbral y se monitorean sin }\DIFaddend un plan de mitigación \DIFdelbegin \DIFdel{)}\DIFdelend \DIFaddbegin \DIFadd{específico}\DIFaddend .
+Los riesgos 4 y 5 quedan por debajo del umbral y se monitorean sin un plan de mitigación específico.
 
 
-\DIFdelbegin \DIFdel{Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-}%DIFDELCMD < 
-
-%DIFDELCMD < \end{consigna}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \section{14. Gestión de la calidad}
+\section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\DIFdelbegin %DIFDELCMD < \begin{consigna}{red}
-%DIFDELCMD < %%%
-\DIFdel{Elija al menos diez requerimientos que a su criterio sean los }\DIFdelend \DIFaddbegin \DIFadd{Se seleccionan los diez requerimientos considerados }\DIFaddend más \DIFdelbegin \DIFdel{importantes/}\DIFdelend críticos \DIFdelbegin \DIFdel{/que aportan más valor y para cada uno de ellos indique }\DIFdelend \DIFaddbegin \DIFadd{para el valor del Trabajo Final. Para cada uno se indican }\DIFaddend las acciones de verificación \DIFdelbegin \DIFdel{y }\DIFdelend \DIFaddbegin \DIFadd{(que consideran al entregable como ``caja blanca'', con conocimiento de su funcionamiento interno) y de }\DIFaddend validación \DIFdelbegin \DIFdel{que permitan asegurar su cumplimiento. }\DIFdelend \DIFaddbegin \DIFadd{(que lo consideran como ``caja negra'', contrastando el resultado contra los criterios acordados con el director). En este proyecto académico e individual, la validación se realiza con el director del Trabajo Final como referente de aceptación.
-}\DIFaddend 
+Se seleccionan los diez requerimientos considerados más críticos para el valor del Trabajo Final. Para cada uno se indican las acciones de verificación\DIFdelbegin \DIFdel{(que consideran al entregable como }\DIFdelend \DIFaddbegin \DIFadd{, que examinan el entregable como una }\DIFaddend ``caja blanca'', con conocimiento de su funcionamiento interno\DIFdelbegin \DIFdel{) y }\DIFdelend \DIFaddbegin \DIFadd{, y las acciones }\DIFaddend de validación\DIFdelbegin \DIFdel{(que lo consideran como }\DIFdelend \DIFaddbegin \DIFadd{, que lo evalúan como una }\DIFaddend ``caja negra'', \DIFdelbegin \DIFdel{contrastando el resultado contra los }\DIFdelend \DIFaddbegin \DIFadd{a partir de los resultados obtenidos y los }\DIFaddend criterios acordados con el director\DIFdelbegin \DIFdel{)}\DIFdelend . En este proyecto académico e individual, la validación se realiza con el director del Trabajo Final como referente de aceptación.
 
 \begin{itemize}
-\item Req \DIFdelbegin \DIFdel{\#1: copiar acá el requerimiento con su correspondiente número.
-	}\DIFdelend \DIFaddbegin \DIFadd{1.1 (funcional): evaluar cada acción y emitir una de tres decisiones (permitir, revisar o bloquear).
-	}\begin{itemize}
-		\item \DIFadd{Verificación: pruebas automatizadas que recorran casos conocidos y comprueben que la salida siempre pertenece al conjunto de decisiones válidas y que la acción no se ejecuta antes de la evaluación.
-		}\item \DIFadd{Validación: revisión con el director de un conjunto de escenarios de ejemplo, confirmando que las decisiones emitidas son las esperadas.
-	}\end{itemize}
-\DIFaddend 
+\item Req 1.1 (funcional): evaluar cada acción y emitir una de tres decisiones (permitir, revisar o bloquear).
+	\begin{itemize}
+		\item Verificación: pruebas automatizadas que recorran casos conocidos y comprueben que la salida siempre pertenece al conjunto de decisiones válidas y que la acción no se ejecuta antes de la evaluación.
+		\item Validación: revisión con el director de un conjunto de escenarios de ejemplo, confirmando que las decisiones emitidas son las esperadas.
+	\end{itemize}
 
-\DIFaddbegin \item \DIFadd{Req 1.2 (funcional): usar únicamente información disponible antes de la acción, sin información posterior ni etiquetas de referencia.
-	}\DIFaddend \begin{itemize}
-		\item Verificación\DIFdelbegin \DIFdel{para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente.
-	Detallar.
-	}\DIFdelend \DIFaddbegin \DIFadd{: inspección del código y de los }\textit{\DIFadd{pipelines}} \DIFadd{de datos para confirmar que las etiquetas y las señales posteriores a la acción no se usan como entrada durante la inferencia.
-		}\DIFaddend \item Validación\DIFdelbegin \DIFdel{con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido.
-	Detallar. 
-}\DIFdelend \DIFaddbegin \DIFadd{: contrastar los resultados con el director mediante una prueba de fuga de información, verificando que el desempeño no dependa de datos no disponibles en un uso real.
-	}\DIFaddend \end{itemize}
+\item Req 1.2 (funcional): usar únicamente información disponible antes de la acción, sin información posterior ni etiquetas de referencia.
+	\begin{itemize}
+		\item Verificación: inspección del código y de los \textit{pipelines} de datos para confirmar que las etiquetas y las señales posteriores a la acción no se usan como entrada durante la inferencia.
+		\item Validación: contrastar los resultados con el director mediante una prueba de fuga de información, verificando que el desempeño no dependa de datos no disponibles en un uso real.
+	\end{itemize}
 
-\DIFaddbegin \item \DIFadd{Req 1.3 (funcional): aplicar reglas de permisos verificables, independientes del modelo de IA.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: pruebas unitarias sobre el motor de reglas que comprueben que una prohibición explícita nunca es anulada por la puntuación del modelo.
-		}\item \DIFadd{Validación: revisión con el director de un conjunto de reglas de ejemplo (por ejemplo, la lectura de archivos de credenciales) y su cumplimiento.
-	}\DIFaddend \end{itemize}
+\item Req 1.3 (funcional): aplicar reglas de permisos verificables, independientes del modelo de IA.
+	\begin{itemize}
+		\item Verificación: pruebas unitarias sobre el motor de reglas que comprueben que una prohibición explícita nunca es anulada por la puntuación del modelo.
+		\item Validación: revisión con el director de un conjunto de reglas de ejemplo (por ejemplo, la lectura de archivos de credenciales) y su cumplimiento.
+	\end{itemize}
 
-\DIFdelbegin \DIFdel{Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.
-	}\DIFdelend \DIFaddbegin \item \DIFadd{Req 1.4 (funcional): intercambiar el mecanismo de evaluación del riesgo sin modificar el resto de los componentes.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: comprobar que las tres familias de detectores implementan la misma interfaz y se seleccionan por configuración, sin cambios en el resto del sistema.
-		}\item \DIFadd{Validación: demostrar al director el reemplazo de un detector por otro ejecutando el mismo caso con cada variante.
-	}\end{itemize}
-\DIFaddend 
+\item Req 1.4 (funcional): intercambiar el mecanismo de evaluación del riesgo sin modificar el resto de los componentes.
+	\begin{itemize}
+		\item Verificación: comprobar que las tres familias de detectores implementan la misma interfaz y se seleccionan por configuración, sin cambios en el resto del sistema.
+		\item Validación: demostrar al director el reemplazo de un detector por otro ejecutando el mismo caso con cada variante.
+	\end{itemize}
 
-\DIFdelbegin \DIFdel{Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.
-		}\DIFdelend \DIFaddbegin \item \DIFadd{Req 2.1 (desempeño): latencia promedio no superior a 500~ms en la variante liviana sobre CPU.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: medición automatizada de la latencia promedio sobre un lote de solicitudes en el entorno de referencia, registrando los resultados.
-		}\item \DIFadd{Validación: presentar al director el informe de latencia y confirmar que cumple el umbral acordado.
-	}\end{itemize}
-\DIFaddend 
+\item Req 2.1 (desempeño): latencia promedio no superior a 500~ms en la variante liviana sobre CPU.
+	\begin{itemize}
+		\item Verificación: medición automatizada de la latencia promedio sobre un lote de solicitudes en el entorno de referencia, registrando los resultados.
+		\item Validación: presentar al director el informe de latencia y confirmar que cumple el umbral acordado.
+	\end{itemize}
 
-\DIFdelbegin \DIFdel{En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-	}\DIFdelend \DIFaddbegin \item \DIFadd{Req 2.2 (desempeño): funcionar usando como mucho 2~GB de memoria RAM adicional.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: monitoreo del consumo de memoria durante la ejecución de la variante liviana y comparación contra el límite.
-		}\item \DIFadd{Validación: revisión con el director del reporte de uso de memoria en el equipo de referencia.
-	}\end{itemize}
-\DIFaddend 
+\item Req 2.2 (desempeño): funcionar usando como mucho 2~GB de memoria RAM adicional.
+	\begin{itemize}
+		\item Verificación: monitoreo del consumo de memoria durante la ejecución de la variante liviana y comparación contra el límite.
+		\item Validación: revisión con el director del reporte de uso de memoria en el equipo de referencia.
+	\end{itemize}
 
-\DIFdelbegin %DIFDELCMD < \end{consigna}
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \item \DIFadd{Req 3.1 (seguridad y privacidad): ejecutar la inferencia de forma totalmente local, sin transmitir datos a servicios externos.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: análisis del tráfico de red durante la inferencia para confirmar que no hay envíos a servicios externos en el modo local.
-		}\item \DIFadd{Validación: demostración al director de una ejecución local completa, sin conexión a internet.
-	}\end{itemize}
-\DIFaddend 
+\item Req 3.1 (seguridad y privacidad): ejecutar la inferencia de forma totalmente local, sin transmitir datos a servicios externos.
+	\begin{itemize}
+		\item Verificación: análisis del tráfico de red durante la inferencia para confirmar que no hay envíos a servicios externos en el modo local.
+		\item Validación: demostración al director de una ejecución local completa, sin conexión a internet.
+	\end{itemize}
 
-\DIFaddbegin \item \DIFadd{Req 4.2 (documentación): permitir reproducir los experimentos con los conjuntos de datos públicos.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: ejecutar el procedimiento documentado en un entorno limpio y comprobar que los resultados coinciden con los reportados.
-		}\item \DIFadd{Validación: que el director reproduzca un experimento a partir de la documentación entregada y obtenga resultados equivalentes.
-	}\end{itemize}
+\item Req 4.2 (documentación): permitir reproducir los experimentos con los conjuntos de datos públicos.
+	\begin{itemize}
+		\item Verificación: ejecutar el procedimiento documentado en un entorno limpio y comprobar que los resultados coinciden con los reportados.
+		\item Validación: que el director reproduzca un experimento a partir de la documentación entregada y obtenga resultados equivalentes.
+	\end{itemize}
 
-\item \DIFadd{Req 5.1 (testing): incluir pruebas automatizadas del componente de control.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: revisar la cobertura de las pruebas sobre las decisiones de permitir, revisar y bloquear y sobre el cumplimiento de las reglas de permisos.
-		}\item \DIFadd{Validación: ejecutar la batería de pruebas frente al director y confirmar que pasa en su totalidad.
-	}\end{itemize}
+\item Req 5.1 (testing): incluir pruebas automatizadas del componente de control.
+	\begin{itemize}
+		\item Verificación: revisar la cobertura de las pruebas sobre las decisiones de permitir, revisar y bloquear y sobre el cumplimiento de las reglas de permisos.
+		\item Validación: ejecutar la batería de pruebas frente al director y confirmar que pasa en su totalidad.
+	\end{itemize}
 
-\item \DIFadd{Req 6.1 (interoperabilidad): exponer la evaluación mediante una función independiente del modelo de riesgo interno.
-	}\begin{itemize}
-		\item \DIFadd{Verificación: pruebas que invoquen la función con distintos modelos internos y comprueben que la firma y el formato de la decisión no cambian.
-		}\item \DIFadd{Validación: revisión con el director de la integración del }\textit{\DIFadd{gate}} \DIFadd{en un caso de uso de ejemplo mediante esa función.
-	}\end{itemize}
+\item Req 6.1 (interoperabilidad): exponer la evaluación mediante una función independiente del modelo de riesgo interno.
+	\begin{itemize}
+		\item Verificación: pruebas que invoquen la función con distintos modelos internos y comprueben que la firma y el formato de la decisión no cambian.
+		\item Validación: revisión con el director de la integración del \textit{gate} en un caso de uso de ejemplo mediante esa función.
+	\end{itemize}
 \end{itemize}
 
-\DIFaddend \section{15. Procesos de cierre}    
+\section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\DIFdelbegin %DIFDELCMD < \begin{consigna}{red}
-%DIFDELCMD < %%%
-\DIFdel{Establecer las pautas de trabajo para realizar }\DIFdelend \DIFaddbegin \DIFadd{Al finalizar el proyecto se realizará }\DIFaddend una reunión final de evaluación \DIFdelbegin \DIFdel{del proyecto, tal que contemple las siguientes actividades:
-}\DIFdelend \DIFaddbegin \DIFadd{entre la responsable y el director del Trabajo Final, con el objetivo de cerrar formalmente el trabajo y dejar registro de las lecciones aprendidas. Las pautas para esa reunión son las siguientes.
-}\DIFaddend 
+Al finalizar el proyecto se realizará una reunión final de evaluación entre la responsable y el director del Trabajo Final, con el objetivo de cerrar formalmente el trabajo y dejar registro de las lecciones aprendidas. Las pautas para esa reunión son las siguientes.
 
 \begin{itemize}
-	\item \DIFdelbegin \DIFdel{Pautas de trabajo que se seguirán para analizar si se respetó el }\DIFdelend \DIFaddbegin \DIFadd{Análisis del cumplimiento del }\DIFaddend Plan de Proyecto original\DIFdelbegin \DIFdel{:}%DIFDELCMD < \\
-%DIFDELCMD < 	 %%%
-\DIFdel{- Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar}\DIFdelend \DIFaddbegin \DIFadd{. La responsable preparará un informe de cierre que compare lo planificado con lo efectivamente ejecutado: horas reales frente a las estimadas por grupo de tareas, cumplimiento del cronograma (fechas de inicio y de fin) y uso del }\textit{\DIFadd{buffer}} \DIFadd{para imprevistos. Ese informe se revisará junto con el director durante la reunión, identificando los desvíos y sus causas}\DIFaddend .
-	\item \DIFdelbegin \DIFdel{Identificación de las }\DIFdelend \DIFaddbegin \DIFadd{Registro de }\DIFaddend técnicas\DIFdelbegin \DIFdel{y procedimientos }\DIFdelend \DIFaddbegin \DIFadd{, procedimientos y problemas. La responsable documentará, en un apartado de la memoria del Trabajo Final, qué técnicas y procedimientos resultaron }\DIFaddend útiles \DIFdelbegin \DIFdel{e inútiles que se emplearon, los }\DIFdelend \DIFaddbegin \DIFadd{y cuáles no, los principales }\DIFaddend problemas que surgieron \DIFaddbegin \DIFadd{durante el desarrollo }\DIFaddend y cómo se \DIFdelbegin \DIFdel{solucionaron:}%DIFDELCMD < \\
-%DIFDELCMD < 	 %%%
-\DIFdel{- Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro}\DIFdelend \DIFaddbegin \DIFadd{resolvieron. Este registro servirá como referencia para trabajos futuros y quedará validado por el director}\DIFaddend .
-	\item \DIFdelbegin \DIFdel{Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores: }%DIFDELCMD < \\
-%DIFDELCMD < 	  %%%
-\DIFdel{- Indicar esto y quién financiará los gastos correspondientes}\DIFdelend \DIFaddbegin \DIFadd{Agradecimientos. La responsable incluirá una sección de agradecimientos en la memoria, dirigida al director, a la cátedra y a quienes colaboraron u orientaron el trabajo. Al tratarse de un Trabajo Final académico e individual, no se prevé un acto ni gastos asociados: el reconocimiento se canaliza a través de esa sección y de la presentación pública}\DIFaddend .
+	\item Análisis del cumplimiento del Plan de Proyecto original. La responsable preparará un informe de cierre que compare lo planificado con lo efectivamente ejecutado: horas reales frente a las estimadas por grupo de tareas, cumplimiento del cronograma (fechas de inicio y de fin) y uso del \textit{buffer} para imprevistos. Ese informe se revisará junto con el director durante la reunión, identificando los desvíos y sus causas.
+	\item Registro de técnicas, procedimientos y problemas. La responsable documentará, en un apartado de la memoria del Trabajo Final, qué técnicas y procedimientos resultaron útiles y cuáles no, los principales problemas que surgieron durante el desarrollo y cómo se resolvieron. Este registro servirá como referencia para trabajos futuros y quedará validado por el director.
+	\item Agradecimientos. La responsable incluirá una sección de agradecimientos en la memoria, dirigida al director, a la cátedra y a quienes colaboraron u orientaron el trabajo. Al tratarse de un Trabajo Final académico e individual, no se prevé un acto ni gastos asociados: el reconocimiento se canaliza a través de esa sección y de la presentación pública.
 \end{itemize}
-\DIFdelbegin %DIFDELCMD < 
-
-%DIFDELCMD < \end{consigna}
-%DIFDELCMD < %%%
-\DIFdelend 
 
 \end{document}

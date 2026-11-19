@@ -25,8 +25,8 @@
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Sebastian Alterman}
+\empresaCliente{ExxonMobil Corporation}
  
 \fechaINICIO{19 de octubre de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{7 de diciembre de 2026} 	%Fecha de final de cursada de GdP
@@ -91,9 +91,9 @@ Se adjunta a esta acta la planificación inicial.
 % Esta parte se construye sola con la información que hayan cargado en el preámbulo del documento y no debe modificarla
 \begin{table}[ht]
 \centering
-\begin{tabular}{c}
-\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} \vspace{2.5cm} \\
-\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular} \vspace{2.5cm} \\
+\begin{tabular}{ccc}
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\
+\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
 \end{tabular}
 \end{table}
 
@@ -114,7 +114,7 @@ En este contexto, el proyecto propone desarrollar un componente de control que a
 
 Para tomar cada decisión, el sistema considera tres fuentes de información: los permisos del agente, la herramienta que pretende utilizar junto con sus argumentos y el contexto reciente de la sesión. La evaluación combina el grado en que una acción se aparta del comportamiento esperado con su coherencia respecto del objetivo de la tarea y los permisos otorgados. Se busca que el control funcione en tiempo real, con baja latencia, y que pueda ejecutarse de manera local y liviana en la máquina del usuario para preservar la privacidad.
 
-El funcionamiento del componente de control se presenta en la figura~\ref{fig:diagBloques}. Cuando el agente propone una acción, el componente de control aplica primero un conjunto de reglas explícitas de permisos independientes del modelo de IA. Por ejemplo, una regla puede impedir que un agente con determinado rol lea un archivo de credenciales. Si estas reglas no son suficientes para resolver la decisión, interviene un modelo de riesgo que evalúa la acción considerando el contexto de la sesión. La decisión final integra ambos mecanismos: solo las acciones clasificadas como permitidas llegan al ejecutor; las que requieren revisión quedan pendientes y las bloqueadas no se ejecutan. Las restricciones establecidas por las reglas mantienen su validez independientemente de la puntuación del modelo, de modo que este no puede anular una prohibición explícita.
+En la figura~\ref{fig:diagBloques} se presenta el funcionamiento del componente de control. Cuando el agente propone una acción, el componente de control aplica primero un conjunto de reglas explícitas de permisos independientes del modelo de IA. Por ejemplo, una regla puede impedir que un agente con determinado rol lea un archivo de credenciales. Si estas reglas no son suficientes para resolver la decisión, interviene un modelo de riesgo que evalúa la acción considerando el contexto de la sesión. La decisión final integra ambos mecanismos: solo las acciones clasificadas como permitidas llegan al ejecutor; las que requieren revisión quedan pendientes y las bloqueadas no se ejecutan. Las restricciones establecidas por las reglas mantienen su validez independientemente de la puntuación del modelo, de modo que este no puede anular una prohibición explícita.
 
 \begin{figure}[H]
 \centering
@@ -151,6 +151,7 @@ En la tabla~\ref{tab:interesados} se identifican los interesados del proyecto. A
 \hline
 \rowcolor[HTML]{C0C0C0}
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
+Cliente       & \clientename & \empclientename & - \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumna 	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
 Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & Desarrolladores, analistas y perfiles de finanzas, RR.\,HH.\ e IT \\ \hline
@@ -159,6 +160,7 @@ Usuario final & Personas y equipos técnicos que utilizan agentes de IA & - & De
 
 A continuación se describen las principales características de cada interesado:
 \begin{itemize}
+	\item \textbf{Cliente:} \clientename, de \empclientename, aprueba los resultados del proyecto y verifica que se cumplan los objetivos comprometidos en el acta.
 	\item \textbf{Responsable:} ejecuta la totalidad del trabajo técnico y la redacción de la memoria. Su disponibilidad es de tipo \textit{part-time}, lo que condiciona el cronograma y obliga a planificar con holgura.
 	\item \textbf{Orientador:} el Director del Trabajo Final es experto en la temática y colabora en la definición de los requerimientos, la metodología de evaluación y la revisión de la memoria.
 	\item \textbf{Usuario final:} valora la privacidad (que sus datos no salgan de su equipo), un bajo impacto en la fluidez de uso (pocas falsas alarmas) y que la solución funcione en computadoras de capacidad modesta.
@@ -456,7 +458,7 @@ Cantidad total de horas: 600 h.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-El diagrama de \textit{Activity on Node} (figura~\ref{fig:AoN}) se construye a partir del desglose de tareas de la sección~\ref{sec:wbs} y representa las dependencias entre las tareas del proyecto. Cada nodo corresponde a una tarea, identificada con su código del WBS, su nombre y su duración estimada; los tiempos están expresados en horas (h). El flujo avanza desde el hito de inicio (octubre de 2026) hasta el hito de fin (noviembre de 2027).
+En la figura~\ref{fig:AoN} se presenta el diagrama de \textit{Activity on Node}, elaborado a partir del desglose de tareas de la sección~\ref{sec:wbs}. El diagrama representa las dependencias entre las tareas del proyecto. Cada nodo corresponde a una tarea e incluye su código del WBS, su nombre y su duración estimada, expresada en horas (h). El flujo comienza en el hito de inicio, correspondiente a octubre de 2026, y finaliza en el hito de fin, previsto para noviembre de 2027.
 
 Los colores distinguen el rol de cada tarea en la red, según las referencias incluidas en el diagrama: en rojo las tareas del camino crítico, cuya demora afecta directamente la fecha de finalización del proyecto; en naranja las del camino semicrítico, con holgura reducida; en azul las tareas fuera del camino crítico, que cuentan con holgura; y en verde los hitos de inicio y fin.
 
@@ -470,37 +472,26 @@ Los colores distinguen el rol de cada tarea en la red, según las referencias in
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-Para la planificación temporal del proyecto se elaboró el diagrama de Gantt de la figura~\ref{fig:diagGantt}, construido a partir del desglose de tareas de la sección~\ref{sec:wbs}. Cada barra representa una tarea identificada con su código del WBS, su nombre y su duración estimada en horas; su posición y su longitud indican las fechas de inicio y de fin previstas.
+En la figura~\ref{fig:diagGantt} se puede observar el diagrama de Gantt elaborado para la planificación temporal del proyecto, construido a partir del desglose de tareas de la sección~\ref{sec:wbs}. Cada barra representa una tarea identificada con su código del WBS, su nombre y su duración estimada en horas; su posición y su longitud indican las fechas de inicio y de fin previstas.
 
 El cronograma abarca desde el inicio del Trabajo Final, en octubre de 2026, hasta la presentación pública prevista para noviembre de 2027. Las tareas se ordenan respetando las dependencias reflejadas en el diagrama de \textit{Activity on Node} de la sección~\ref{sec:AoN}; algunas se ejecutan en paralelo cuando las precedencias y los recursos lo permiten.
 
-\begin{landscape}
 \begin{figure}[htpb]
 \centering
-\includegraphics[height=\textheight]{./Figuras/Gantt-2.png}
+\includegraphics[width=\textwidth]{./Figuras/Gantt-2.png}
 \caption{Diagrama de Gantt del proyecto.}
 \label{fig:diagGantt}
 \end{figure}
-
-\end{landscape}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-El presupuesto se expresa en dólares estadounidenses (USD). Dado el período de ejecución (desde octubre de 2026 hasta la defensa prevista en noviembre de 2027), se adopta el USD como moneda de referencia para evitar la distorsión que la inflación introduciría sobre valores expresados en pesos argentinos (ARS).
+El presupuesto se expresa en dólares estadounidenses (USD) para evitar la distorsión que la inflación introduciría sobre valores expresados en pesos argentinos (ARS).
 
 Al tratarse de un Trabajo Final académico e individual, el mayor componente del costo corresponde a la mano de obra de la responsable. Aunque no implica un desembolso monetario efectivo, se valoriza como costo de oportunidad a un valor hora de mercado de referencia para un perfil semi-senior de IA y datos en Argentina (USD~15/h), por lo que las 600~h estimadas constituyen el principal costo directo.
 
 Los conjuntos de datos públicos, los modelos abiertos y el software utilizado son de uso gratuito, por lo que su costo directo es nulo; se incluyen de todos modos en la tabla para dejar constancia. El cómputo con GPU se cubre mediante una suscripción a Google Colab Pro durante los meses de experimentación. Entre los costos indirectos se consideran la amortización del equipo de cómputo personal, la energía eléctrica y la conexión a internet, imputados de forma proporcional al uso del proyecto.
-
-Los supuestos de cálculo son:
-\begin{itemize}
-	\item Valor hora de la responsable: USD~15/h (costo de oportunidad, ajustable).
-	\item Google Colab Pro: USD~12 por mes durante 5 meses de experimentación (desarrollo de los detectores, optimización y evaluación).
-	\item Amortización del equipo: notebook de USD~1.200, vida útil de 48 meses, con 13 meses de uso imputados al proyecto.
-	\item Energía eléctrica e internet: imputación proporcional al uso durante el período de ejecución.
-\end{itemize}
 
 El detalle se presenta en la tabla~\ref{tab:presupuesto}.
 
@@ -557,22 +548,22 @@ Conexión a internet (proporcional) & 13 meses & --- & 60 \\ \hline
 
 A continuación se identifican los principales riesgos del proyecto. Para cada uno se estima la severidad (S) y la probabilidad de ocurrencia (O) en una escala de 1 a 10, y se calcula el número de prioridad de riesgo como RPN${}={}$S${}\times{}$O. Los valores marcados con asterisco ($^{*}$) corresponden a la situación luego de aplicar las medidas de mitigación.
 
-Riesgo 1: no disponer de conjuntos de datos adecuados para caracterizar acciones maliciosas de agentes.
+Riesgo 1: no disponer de conjuntos de datos adecuados para identificar y caracterizar acciones maliciosas de los agentes.
 \begin{itemize}
 	\item Severidad (S): 9. Sin datos representativos no es posible entrenar ni evaluar los detectores, lo que compromete el núcleo del Trabajo Final.
-	\item Ocurrencia (O): 6. Es un área reciente; existen conjuntos de \textit{prompt injection}, pero no necesariamente con el etiquetado de permitir, revisar o bloquear que requiere el proyecto.
+	\item Ocurrencia (O): 6. Se trata de un área de investigación reciente. Existen conjuntos de datos sobre \textit{prompt injection}, pero no necesariamente incluyen las etiquetas permitir, revisar o bloquear que requiere el proyecto.
 \end{itemize}
 
 Riesgo 2: que la variante liviana no alcance las metas de desempeño (latencia y memoria) por el tamaño o el costo de los modelos.
 \begin{itemize}
-	\item Severidad (S): 6. Afecta un requerimiento de desempeño, aunque el trabajo sigue siendo válido para comparar enfoques entre sí.
+	\item Severidad (S): 6. Afecta un requerimiento de desempeño, aunque el trabajo mantiene su validez para comparar enfoques entre sí.
 	\item Ocurrencia (O): 6. Los modelos de decisión pueden exceder los límites de RAM o de latencia en CPU sin optimización previa.
 \end{itemize}
 
 Riesgo 3: retrasos en el cronograma por la disponibilidad \textit{part-time} de la responsable.
 \begin{itemize}
-	\item Severidad (S): 5. Un desvío moderado puede comprimir las etapas finales, pero no impide completar el trabajo.
-	\item Ocurrencia (O): 8. La modalidad \textit{part-time} y la extensión del proyecto hacen que los desvíos sean probables.
+	\item Severidad (S): 5. Un desvío moderado puede reducir las etapas finales, pero no impide completar el trabajo.
+	\item Ocurrencia (O): 8. La dedicación parcial y la extensión del proyecto hacen que los desvíos sean probables.
 \end{itemize}
 
 Riesgo 4: pérdida o cambios en los límites de los servicios de cómputo gratuitos (por ejemplo, Google Colab).
@@ -619,7 +610,7 @@ Los riesgos 4 y 5 quedan por debajo del umbral y se monitorean sin un plan de mi
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-Se seleccionan los diez requerimientos considerados más críticos para el valor del Trabajo Final. Para cada uno se indican las acciones de verificación (que consideran al entregable como ``caja blanca'', con conocimiento de su funcionamiento interno) y de validación (que lo consideran como ``caja negra'', contrastando el resultado contra los criterios acordados con el director). En este proyecto académico e individual, la validación se realiza con el director del Trabajo Final como referente de aceptación.
+Se seleccionan los diez requerimientos considerados más críticos para el valor del Trabajo Final. Para cada uno se indican las acciones de verificación, que examinan el entregable como una ``caja blanca'', con conocimiento de su funcionamiento interno, y las acciones de validación, que lo evalúan como una ``caja negra'', a partir de los resultados obtenidos y los criterios acordados con el director. En este proyecto académico e individual, la validación se realiza con el director del Trabajo Final como referente de aceptación.
 
 \begin{itemize}
 \item Req 1.1 (funcional): evaluar cada acción y emitir una de tres decisiones (permitir, revisar o bloquear).
